@@ -13,34 +13,38 @@
             height: 100vh;
             margin: 0;
             font-family: Arial, sans-serif;
-            background-color: #f4f4f4; /* Added background color */
+            background-color: #f4f4f4;
         }
         .logo {
-            width: 150px;
+            width: auto;
             height: 150px;
-            background-image: url('logo_navmii.png'); /* Replace with your logo URL */
-            background-size: cover;
-            background-position: center;
-            margin-bottom: 20px;
+            max-width: 100%; /* Ensures full logo is visible */
+            margin-bottom: 40px; /* Increased space between logo and links */
+        }
+        .links {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr); /* Two columns layout */
+            gap: 20px; /* Space between columns */
+            justify-items: center;
+            margin-top: 20px;
         }
         .links a {
             display: block;
-            margin: 10px 0;
+            text-align: center;
             font-size: 18px;
             color: #007BFF;
             text-decoration: none;
-            text-align: center;
         }
         .links a:hover {
             text-decoration: underline;
         }
         .roadmap-image {
-            width: 100px;
-            height: 100px;
+            width: 150px;
+            height: 150px;
             background-size: cover;
             background-position: center;
-            margin: 10px auto;
-            border-radius: 8px; /* Added rounded corners */
+            margin: 0 auto;
+            border-radius: 8px;
         }
         .roadmap-text {
             margin-top: 8px;
@@ -52,7 +56,7 @@
 </head>
 <body>
 
-    <div class="logo"></div>
+    <img class="logo" src="logo_navmii.png" alt="Navmii Logo"> <!-- Ensure logo is visible -->
 
     <div class="links">
         <a href="PathwayPro2025.html" target="_blank">
