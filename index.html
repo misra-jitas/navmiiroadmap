@@ -13,6 +13,7 @@
             height: 100vh;
             margin: 0;
             font-family: Arial, sans-serif;
+            background-color: #f4f4f4; /* Added background color */
         }
         .logo {
             width: 150px;
@@ -28,6 +29,7 @@
             font-size: 18px;
             color: #007BFF;
             text-decoration: none;
+            text-align: center;
         }
         .links a:hover {
             text-decoration: underline;
@@ -37,8 +39,14 @@
             height: 100px;
             background-size: cover;
             background-position: center;
-            display: block;
             margin: 10px auto;
+            border-radius: 8px; /* Added rounded corners */
+        }
+        .roadmap-text {
+            margin-top: 8px;
+            font-size: 16px;
+            font-weight: bold;
+            color: #333;
         }
     </style>
 </head>
@@ -49,11 +57,11 @@
     <div class="links">
         <a href="PathwayPro2025.html" target="_blank">
             <div class="roadmap-image" style="background-image: url('roadmappathway.png');"></div>
-            PathwayPro 2025 Roadmap
+            <div class="roadmap-text">PathwayPro 2025 Roadmap</div>
         </a>
         <a href="Navmii2025.html" target="_blank">
             <div class="roadmap-image" style="background-image: url('roadmapnavmii.png');"></div>
-            Navmii 2025 Roadmap
+            <div class="roadmap-text">Navmii 2025 Roadmap</div>
         </a>
     </div>
 
