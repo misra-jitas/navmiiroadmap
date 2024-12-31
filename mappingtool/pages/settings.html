@@ -75,17 +75,20 @@
             <div class="settings-section">
                 <h3>Global Settings</h3>
                 <form class="settings-form">
-                    <label for="map-refresh">Map Refresh Interval (seconds):</label>
-                    <input type="number" id="map-refresh" min="10" max="3600" value="30">
+                    <label for="map-side-selection">Mapping Side:</label>
+                    <select id="map-side-selection">
+                        <option value="single-side">Single-Side Streets</option>
+                        <option value="both-sides">Both Sides of Streets</option>
+                    </select>
 
-                    <label for="default-threshold">Default Completion Threshold (%):</label>
-                    <input type="number" id="default-threshold" min="1" max="100" value="80">
+                    <label for="day-length">Day Length (hours):</label>
+                    <input type="number" id="day-length" min="1" max="24" value="8">
 
                     <button type="button" id="save-global-settings">Save Global Settings</button>
                 </form>
             </div>
 
-            <!-- Route Settings -->
+            <!-- Route-Specific Settings -->
             <div class="settings-section">
                 <h3>Route Settings</h3>
                 <form class="settings-form">
@@ -97,14 +100,17 @@
                         <option value="Mission #4">Mission #4</option>
                     </select>
 
-                    <label for="route-threshold">Completion Threshold (%):</label>
-                    <input type="number" id="route-threshold" min="1" max="100" value="70">
+                    <label for="lane-specific">Lane-Specific Mapping:</label>
+                    <select id="lane-specific">
+                        <option value="enabled">Enabled</option>
+                        <option value="disabled">Disabled</option>
+                    </select>
 
                     <button type="button" id="save-route-settings">Save Route Settings</button>
                 </form>
             </div>
 
-            <!-- Rig Settings -->
+            <!-- Rig-Specific Settings -->
             <div class="settings-section">
                 <h3>Rig Settings</h3>
                 <form class="settings-form">
@@ -116,8 +122,8 @@
                         <option value="Diana">Diana</option>
                     </select>
 
-                    <label for="rig-threshold">Completion Threshold (%):</label>
-                    <input type="number" id="rig-threshold" min="1" max="100" value="75">
+                    <label for="custom-threshold">Custom Completion Threshold (%):</label>
+                    <input type="number" id="custom-threshold" min="1" max="100" value="75">
 
                     <button type="button" id="save-rig-settings">Save Rig Settings</button>
                 </form>
@@ -130,21 +136,21 @@
     </div>
     <script>
         document.getElementById('save-global-settings').addEventListener('click', () => {
-            const mapRefresh = document.getElementById('map-refresh').value;
-            const defaultThreshold = document.getElementById('default-threshold').value;
-            alert(`Global Settings Saved:\n- Map Refresh: ${mapRefresh}s\n- Completion Threshold: ${defaultThreshold}%`);
+            const mappingSide = document.getElementById('map-side-selection').value;
+            const dayLength = document.getElementById('day-length').value;
+            alert(`Global Settings Saved:\n- Mapping Side: ${mappingSide}\n- Day Length: ${dayLength} hours`);
         });
 
         document.getElementById('save-route-settings').addEventListener('click', () => {
-            const route = document.getElementById('route-select').value;
-            const routeThreshold = document.getElementById('route-threshold').value;
-            alert(`Route Settings Saved:\n- Route: ${route}\n- Completion Threshold: ${routeThreshold}%`);
+            const selectedRoute = document.getElementById('route-select').value;
+            const laneSpecific = document.getElementById('lane-specific').value;
+            alert(`Route Settings Saved:\n- Route: ${selectedRoute}\n- Lane-Specific Mapping: ${laneSpecific}`);
         });
 
         document.getElementById('save-rig-settings').addEventListener('click', () => {
-            const rig = document.getElementById('rig-select').value;
-            const rigThreshold = document.getElementById('rig-threshold').value;
-            alert(`Rig Settings Saved:\n- Rig: ${rig}\n- Completion Threshold: ${rigThreshold}%`);
+            const selectedRig = document.getElementById('rig-select').value;
+            const customThreshold = document.getElementById('custom-threshold').value;
+            alert(`Rig Settings Saved:\n- Rig: ${selectedRig}\n- Completion Threshold: ${customThreshold}%`);
         });
     </script>
 </body>
