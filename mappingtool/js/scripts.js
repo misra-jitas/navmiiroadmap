@@ -69,6 +69,23 @@ function initApp() {
             gridOverlay.style.gridTemplateRows = 'repeat(1, 1fr)';
             gridOverlay.style.gridTemplateColumns = 'repeat(1, 1fr)';
         });
+
+        document.getElementById('resize-grid').addEventListener('click', () => {
+            const newRows = prompt('Enter number of rows:', '3');
+            const newCols = prompt('Enter number of columns:', '3');
+            if (newRows && newCols) {
+                gridOverlay.style.gridTemplateRows = `repeat(${newRows}, 1fr)`;
+                gridOverlay.style.gridTemplateColumns = `repeat(${newCols}, 1fr)`;
+            }
+        });
+
+        document.getElementById('assign-grid').addEventListener('click', () => {
+            alert('Grid assignment functionality is a placeholder. Implement logic to assign grid cells to operators.');
+        });
+
+        document.getElementById('retract-grid').addEventListener('click', () => {
+            alert('Grid retraction functionality is a placeholder. Implement logic to retract grid cells from operators.');
+        });
     }
 }
 
