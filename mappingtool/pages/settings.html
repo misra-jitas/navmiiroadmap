@@ -7,41 +7,41 @@
     <link rel="stylesheet" href="../css/styles.css">
     <style>
         .settings-section {
-            margin-bottom: 20px;
+            margin-bottom: 30px;
         }
 
         .settings-section h3 {
-            margin-bottom: 10px;
+            margin-bottom: 15px;
         }
 
-        .settings-section form {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
+        .settings-form {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 15px;
         }
 
-        .settings-section label {
+        .settings-form label {
             font-weight: bold;
+            align-self: center;
         }
 
-        .settings-section input,
-        .settings-section select,
-        .settings-section button {
-            padding: 8px;
+        .settings-form input,
+        .settings-form select,
+        .settings-form button {
+            padding: 10px;
             font-size: 14px;
-            width: 50%;
-        }
-
-        .settings-section button {
-            width: auto;
-            background-color: #007bff;
-            color: white;
-            border: none;
-            cursor: pointer;
+            border: 1px solid #ccc;
             border-radius: 5px;
         }
 
-        .settings-section button:hover {
+        .settings-form button {
+            width: fit-content;
+            background-color: #007bff;
+            color: white;
+            cursor: pointer;
+        }
+
+        .settings-form button:hover {
             background-color: #0056b3;
         }
     </style>
@@ -70,41 +70,56 @@
         <!-- Content Section -->
         <div class="content">
             <h2>Settings</h2>
+            
+            <!-- Global Settings -->
             <div class="settings-section">
                 <h3>Global Settings</h3>
-                <form>
-                    <label for="map-refresh-interval">Map Refresh Interval (seconds):</label>
-                    <input type="number" id="map-refresh-interval" name="map-refresh-interval" min="10" max="3600" value="30">
-                    
-                    <label for="default-completion-threshold">Default Completion Threshold (%):</label>
-                    <input type="number" id="default-completion-threshold" name="default-completion-threshold" min="1" max="100" value="80">
-                    
+                <form class="settings-form">
+                    <label for="map-refresh">Map Refresh Interval (seconds):</label>
+                    <input type="number" id="map-refresh" min="10" max="3600" value="30">
+
+                    <label for="default-threshold">Default Completion Threshold (%):</label>
+                    <input type="number" id="default-threshold" min="1" max="100" value="80">
+
                     <button type="button" id="save-global-settings">Save Global Settings</button>
                 </form>
             </div>
+
+            <!-- Route Settings -->
             <div class="settings-section">
-                <h3>Settings by Route and Rig</h3>
-                <form>
-                    <label for="select-route">Select Route:</label>
-                    <select id="select-route" name="select-route">
+                <h3>Route Settings</h3>
+                <form class="settings-form">
+                    <label for="route-select">Select Route:</label>
+                    <select id="route-select">
                         <option value="Mission #1">Mission #1</option>
                         <option value="Mission #2">Mission #2</option>
                         <option value="Mission #3">Mission #3</option>
                         <option value="Mission #4">Mission #4</option>
                     </select>
-                    
-                    <label for="select-rig">Select Rig:</label>
-                    <select id="select-rig" name="select-rig">
+
+                    <label for="route-threshold">Completion Threshold (%):</label>
+                    <input type="number" id="route-threshold" min="1" max="100" value="70">
+
+                    <button type="button" id="save-route-settings">Save Route Settings</button>
+                </form>
+            </div>
+
+            <!-- Rig Settings -->
+            <div class="settings-section">
+                <h3>Rig Settings</h3>
+                <form class="settings-form">
+                    <label for="rig-select">Select Rig:</label>
+                    <select id="rig-select">
                         <option value="Alice">Alice</option>
                         <option value="Bob">Bob</option>
                         <option value="Charlie">Charlie</option>
                         <option value="Diana">Diana</option>
                     </select>
-                    
-                    <label for="custom-completion-threshold">Custom Completion Threshold (%):</label>
-                    <input type="number" id="custom-completion-threshold" name="custom-completion-threshold" min="1" max="100" value="70">
-                    
-                    <button type="button" id="save-route-rig-settings">Save Route & Rig Settings</button>
+
+                    <label for="rig-threshold">Completion Threshold (%):</label>
+                    <input type="number" id="rig-threshold" min="1" max="100" value="75">
+
+                    <button type="button" id="save-rig-settings">Save Rig Settings</button>
                 </form>
             </div>
         </div>
@@ -115,16 +130,21 @@
     </div>
     <script>
         document.getElementById('save-global-settings').addEventListener('click', () => {
-            const refreshInterval = document.getElementById('map-refresh-interval').value;
-            const completionThreshold = document.getElementById('default-completion-threshold').value;
-            alert(`Global Settings Saved:\n- Refresh Interval: ${refreshInterval} seconds\n- Completion Threshold: ${completionThreshold}%`);
+            const mapRefresh = document.getElementById('map-refresh').value;
+            const defaultThreshold = document.getElementById('default-threshold').value;
+            alert(`Global Settings Saved:\n- Map Refresh: ${mapRefresh}s\n- Completion Threshold: ${defaultThreshold}%`);
         });
 
-        document.getElementById('save-route-rig-settings').addEventListener('click', () => {
-            const selectedRoute = document.getElementById('select-route').value;
-            const selectedRig = document.getElementById('select-rig').value;
-            const customThreshold = document.getElementById('custom-completion-threshold').value;
-            alert(`Route & Rig Settings Saved:\n- Route: ${selectedRoute}\n- Rig: ${selectedRig}\n- Custom Completion Threshold: ${customThreshold}%`);
+        document.getElementById('save-route-settings').addEventListener('click', () => {
+            const route = document.getElementById('route-select').value;
+            const routeThreshold = document.getElementById('route-threshold').value;
+            alert(`Route Settings Saved:\n- Route: ${route}\n- Completion Threshold: ${routeThreshold}%`);
+        });
+
+        document.getElementById('save-rig-settings').addEventListener('click', () => {
+            const rig = document.getElementById('rig-select').value;
+            const rigThreshold = document.getElementById('rig-threshold').value;
+            alert(`Rig Settings Saved:\n- Rig: ${rig}\n- Completion Threshold: ${rigThreshold}%`);
         });
     </script>
 </body>
