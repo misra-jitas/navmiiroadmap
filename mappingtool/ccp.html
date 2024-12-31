@@ -34,6 +34,15 @@
         .sidebar h3 {
             margin-top: 0;
         }
+        .sidebar ul {
+            padding: 0;
+            margin: 0;
+            list-style-type: none;
+        }
+        .sidebar ul li {
+            margin: 10px 0;
+            cursor: pointer;
+        }
         .content {
             flex: 1;
             padding: 1em;
@@ -101,7 +110,13 @@
         <div class="content">
             <div class="map-view">
                 <h2>Live Map View</h2>
-                <img src="/images/map.png" alt="Map View">
+                <div class="map-container">
+                    <img src="/images/map.png" alt="Map View">
+                    <!-- Example rigs -->
+                    <div class="rig" style="top: 30%; left: 50%;">Rig 1</div>
+                    <div class="rig" style="top: 70%; left: 20%;">Rig 2</div>
+                    <div class="rig" style="top: 50%; left: 80%;">Rig 3</div>
+                </div>
             </div>
             <div class="metrics">
                 <div class="card">
