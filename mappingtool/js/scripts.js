@@ -1,7 +1,7 @@
 // Navigation handler for sidebar links
 function navigateTo(page) {
-    // Ensure navigation links are correct
-    window.location.href = `./pages/${page}.html`;
+    // Correct navigation to include the /pages directory once
+    window.location.href = `../pages/${page}.html`;
 }
 
 // Example: Functionality for future interactivity
@@ -26,7 +26,8 @@ function initApp() {
     sidebarLinks.forEach(link => {
         link.addEventListener('click', (e) => {
             e.preventDefault();
-            navigateTo(link.getAttribute('href').replace('.html', ''));
+            const page = link.getAttribute('href').replace('.html', '').replace('../pages/', '');
+            navigateTo(page);
         });
     });
 }
