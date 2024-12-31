@@ -21,7 +21,7 @@ function updateMetrics(metrics) {
 function initApp() {
     console.log('App initialized');
 
-    // Example: Add event listeners for actions
+    // Add navigation links for new menu items
     const sidebarLinks = document.querySelectorAll('.sidebar ul li a');
     sidebarLinks.forEach(link => {
         link.addEventListener('click', (e) => {
@@ -30,6 +30,12 @@ function initApp() {
             navigateTo(page);
         });
     });
+
+    // Add new menu items dynamically
+    const menu = document.querySelector('.sidebar ul');
+    const newMenuItem = document.createElement('li');
+    newMenuItem.innerHTML = '<a href="grid_management.html">Grid Management</a>';
+    menu.appendChild(newMenuItem);
 }
 
 // Wait for DOM to be fully loaded
