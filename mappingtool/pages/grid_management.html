@@ -29,50 +29,19 @@
         </div>
         <!-- Content Section -->
         <div class="content">
-            <h2>Create and Manage Grid Cells</h2>
-            <div class="grid-tools">
-                <button class="create-grid">Create Grid</button>
-                <button class="adjust-grid">Adjust Grid</button>
-                <button class="assign-grid">Assign Grid</button>
+            <h2>Manage and Slice Map</h2>
+            <div class="map-slicing-tools">
+                <button id="slice-horizontal">Slice Horizontally</button>
+                <button id="slice-vertical">Slice Vertically</button>
+                <button id="clear-grid">Clear Grid</button>
             </div>
-            <div class="grid-metadata">
-                <h3>Grid Metadata</h3>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Grid ID</th>
-                            <th>Operator</th>
-                            <th>% Complete</th>
-                            <th>Size</th>
-                            <th>Estimated Time</th>
-                            <th>Actions</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>G1</td>
-                            <td>Operator A</td>
-                            <td>75%</td>
-                            <td>2x2 km</td>
-                            <td>3 hours</td>
-                            <td>
-                                <button class="details">Details</button>
-                                <button class="retract">Retract</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>G2</td>
-                            <td>Operator B</td>
-                            <td>50%</td>
-                            <td>1.5x1.5 km</td>
-                            <td>2 hours</td>
-                            <td>
-                                <button class="details">Details</button>
-                                <button class="retract">Retract</button>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
+            <div class="map-view">
+                <h3>Interactive Map</h3>
+                <div class="map-container" id="map-container">
+                    <img src="../images/map.png" alt="Map View">
+                    <!-- Grid Overlay Placeholder -->
+                    <div class="grid-overlay" id="grid-overlay"></div>
+                </div>
             </div>
         </div>
     </div>

@@ -38,5 +38,26 @@ function initApp() {
     menu.appendChild(newMenuItem);
 }
 
+document.addEventListener('DOMContentLoaded', () => {
+    const mapContainer = document.getElementById('map-container');
+    const gridOverlay = document.getElementById('grid-overlay');
+
+    document.getElementById('slice-horizontal').addEventListener('click', () => {
+        const currentRows = gridOverlay.style.gridTemplateRows.split(' ').length || 1;
+        gridOverlay.style.gridTemplateRows = `repeat(${currentRows + 1}, 1fr)`;
+    });
+
+    document.getElementById('slice-vertical').addEventListener('click', () => {
+        const currentCols = gridOverlay.style.gridTemplateColumns.split(' ').length || 1;
+        gridOverlay.style.gridTemplateColumns = `repeat(${currentCols + 1}, 1fr)`;
+    });
+
+    document.getElementById('clear-grid').addEventListener('click', () => {
+        gridOverlay.style.gridTemplateRows = 'repeat(1, 1fr)';
+        gridOverlay.style.gridTemplateColumns = 'repeat(1, 1fr)';
+    });
+});
+
+
 // Wait for DOM to be fully loaded
 document.addEventListener('DOMContentLoaded', initApp);
