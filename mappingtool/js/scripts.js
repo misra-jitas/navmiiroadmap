@@ -1,8 +1,7 @@
 // Navigation handler for sidebar links
 function navigateTo(page) {
-    // Simulate navigation by loading content dynamically (if desired)
-    // For now, this can be extended with specific functionality as needed.
-    window.location.href = `./${page}.html`;
+    // Ensure navigation links are correct
+    window.location.href = `../${page}.html`;
 }
 
 // Example: Functionality for future interactivity
@@ -27,7 +26,7 @@ function initApp() {
     sidebarLinks.forEach(link => {
         link.addEventListener('click', (e) => {
             e.preventDefault();
-            navigateTo(link.getAttribute('href'));
+            navigateTo(link.getAttribute('href').replace('../pages/', ''));
         });
     });
 }
