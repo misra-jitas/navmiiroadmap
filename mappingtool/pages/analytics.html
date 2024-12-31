@@ -5,6 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Analytics</title>
     <link rel="stylesheet" href="../css/styles.css">
+    <style>
+        .chart img {
+            width: 400px;
+            height: 300px;
+        }
+        .chart-controls {
+            margin-top: 20px;
+        }
+        .chart-controls select,
+        .chart-controls button {
+            margin-right: 10px;
+            padding: 5px;
+            font-size: 14px;
+        }
+    </style>
 </head>
 <body>
     <!-- Header -->
@@ -45,18 +60,28 @@
                 </div>
                 <div class="card">
                     <h3>Active Rigs</h3>
-                    <p>2</p>
+                    <p>4</p>
                 </div>
             </div>
             <h2>Detailed Charts</h2>
+            <div class="chart-controls">
+                <label for="chart-type">Chart Type:</label>
+                <select id="chart-type">
+                    <option value="bar">Bar Chart</option>
+                    <option value="line">Line Chart</option>
+                    <option value="pie">Pie Chart</option>
+                </select>
+                <label for="data-type">Data Type:</label>
+                <select id="data-type">
+                    <option value="mission-completion">Mission Completion</option>
+                    <option value="rig-utilization">Rig Utilization</option>
+                </select>
+                <button id="update-chart">Update Chart</button>
+            </div>
             <div class="charts-section">
-                <div class="chart" id="mission-completion-chart">
-                    <h3>Mission Completion</h3>
-                    <img src="../images/mission-completion-chart.png" alt="Mission Completion Chart">
-                </div>
-                <div class="chart" id="rig-utilization-chart">
-                    <h3>Rig Utilization</h3>
-                    <img src="../images/rig-utilization-chart.png" alt="Rig Utilization Chart">
+                <div class="chart" id="dynamic-chart">
+                    <h3>Chart Title</h3>
+                    <img src="../images/mission_completion_chart.png" alt="Mission Completion Chart" id="chart-image">
                 </div>
             </div>
         </div>
@@ -65,6 +90,21 @@
     <div class="footer">
         <p>Designed for centralized mapping control & monitoring</p>
     </div>
-    <script src="../js/scripts.js"></script>
+    <script>
+        document.getElementById('update-chart').addEventListener('click', () => {
+            const chartType = document.getElementById('chart-type').value;
+            const dataType = document.getElementById('data-type').value;
+            const chartImage = document.getElementById('chart-image');
+            const chartTitle = document.querySelector('#dynamic-chart h3');
+
+            if (dataType === 'mission-completion') {
+                chartImage.src = `../images/${chartType}_mission_completion_chart.png`;
+                chartTitle.textContent = 'Mission Completion';
+            } else if (dataType === 'rig-utilization') {
+                chartImage.src = `../images/${chartType}_rig_utilization_chart.png`;
+                chartTitle.textContent = 'Rig Utilization';
+            }
+        });
+    </script>
 </body>
 </html>
