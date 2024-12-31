@@ -3,13 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Route Allocation</title>
+    <title>Rig Management</title>
     <link rel="stylesheet" href="../css/styles.css">
+    <style>
+        .route-available {
+            text-align: center;
+        }
+
+        .route-available .checkmark {
+            color: green;
+            font-weight: bold;
+        }
+
+        .route-available .timestamp {
+            font-size: 12px;
+            color: gray;
+        }
+    </style>
 </head>
 <body>
     <!-- Header -->
     <div class="header">
-        <h1>Route Allocation</h1>
+        <h1>Rig Management</h1>
     </div>
     <!-- Sidebar -->
     <div class="container">
@@ -29,73 +44,99 @@
         </div>
         <!-- Content Section -->
         <div class="content">
-            <h2>Allocate Missions</h2>
-            <div class="assigned-missions">
-                <h3>Assigned Missions</h3>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Mission</th>
-                            <th>Assigned Rig</th>
-                            <th>% Completeness</th>
-                            <th>Actions</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Mission #1</td>
-                            <td>Alice</td>
-                            <td>85%</td>
-                            <td><button class="reallocate">Reallocate</button></td>
-                        </tr>
-                        <tr>
-                            <td>Mission #2</td>
-                            <td>Bob</td>
-                            <td>50%</td>
-                            <td><button class="reallocate">Reallocate</button></td>
-                        </tr>
-                        <tr>
-                            <td>Mission #3</td>
-                            <td>Bob</td>
-                            <td>50%</td>
-                            <td><button class="reallocate">Reallocate</button></td>
-                        </tr>
-                        <tr>
-                            <td>Mission #4</td>
-                            <td>Charlie</td>
-                            <td>30%</td>
-                            <td><button class="reallocate">Reallocate</button></td>
-                        </tr>
-                        <tr>
-                            <td>Mission #5</td>
-                            <td>Diana</td>
-                            <td>90%</td>
-                            <td><button class="reallocate">Reallocate</button></td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-            <div class="unallocated-missions">
-                <h3>Unallocated Missions</h3>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Mission</th>
-                            <th>Actions</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Mission #6</td>
-                            <td><button class="allocate">Allocate</button></td>
-                        </tr>
-                        <tr>
-                            <td>Mission #7</td>
-                            <td><button class="allocate">Allocate</button></td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
+            <h2>Manage Rigs</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Rig ID</th>
+                        <th>Rig Name</th>
+                        <th>Status</th>
+                        <th>Assigned Missions</th>
+                        <th>% Completeness</th>
+                        <th>Route Available</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>Alice</td>
+                        <td>Active</td>
+                        <td>
+                            <ul>
+                                <li>Mission #1</li>
+                            </ul>
+                        </td>
+                        <td>85%</td>
+                        <td class="route-available">
+                            <span class="checkmark">✔</span>
+                            <div class="timestamp">Last Updated: 2024-12-31 14:30</div>
+                        </td>
+                        <td class="action-buttons">
+                            <button class="stop">Stop</button>
+                            <button class="details">Details</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Bob</td>
+                        <td>Idle</td>
+                        <td>
+                            <ul>
+                                <li>Mission #2</li>
+                                <li>Mission #3</li>
+                            </ul>
+                        </td>
+                        <td>50%</td>
+                        <td class="route-available">
+                            <span class="checkmark">✔</span>
+                            <div class="timestamp">Last Updated: 2024-12-30 09:15</div>
+                        </td>
+                        <td class="action-buttons">
+                            <button class="start">Start</button>
+                            <button class="details">Details</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>Charlie</td>
+                        <td>Error</td>
+                        <td>
+                            <ul>
+                                <li>Mission #4</li>
+                            </ul>
+                        </td>
+                        <td>30%</td>
+                        <td class="route-available">
+                            <span style="color: red;">✘</span>
+                            <div class="timestamp">No Route Available</div>
+                        </td>
+                        <td class="action-buttons">
+                            <button class="fix">Fix</button>
+                            <button class="details">Details</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>Diana</td>
+                        <td>Active</td>
+                        <td>
+                            <ul>
+                                <li>Mission #5</li>
+                            </ul>
+                        </td>
+                        <td>90%</td>
+                        <td class="route-available">
+                            <span class="checkmark">✔</span>
+                            <div class="timestamp">Last Updated: 2024-12-31 08:45</div>
+                        </td>
+                        <td class="action-buttons">
+                            <button class="stop">Stop</button>
+                            <button class="details">Details</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
     </div>
     <!-- Footer -->
