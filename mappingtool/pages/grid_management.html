@@ -31,18 +31,15 @@
         <div class="content">
             <h2>Manage and Slice Map</h2>
             <div class="map-slicing-tools">
-                <button id="slice-horizontal">Slice Horizontally</button>
-                <button id="slice-vertical">Slice Vertically</button>
-                <button id="clear-grid">Clear Grid</button>
-                <button id="resize-grid">Resize Grid</button>
-                <button id="assign-grid">Assign Grid to Rig</button>
-                <button id="retract-grid">Remove Grid from Rig</button>
+                <button id="tool-slide">Slide Selection</button>
+                <button id="tool-square">Square Selection</button>
+                <button id="tool-polygon">Polygon Selection</button>
             </div>
             <div class="map-view">
                 <h3>Interactive Map</h3>
                 <div class="map-container" id="map-container">
                     <img src="../images/map.png" alt="Map View">
-                    <div class="grid-overlay" id="grid-overlay"></div>
+                    <canvas id="map-overlay" class="map-overlay"></canvas>
                 </div>
             </div>
         </div>
