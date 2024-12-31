@@ -19,6 +19,7 @@
                 <li><a href="dashboard.html">Dashboard</a></li>
                 <li><a href="rig_management.html">Rig Management</a></li>
                 <li><a href="route_allocation.html" class="active">Route Allocation</a></li>
+                <li><a href="grid_management.html">Grid Management</a></li>
                 <li><a href="analytics.html">Analytics</a></li>
                 <li><a href="settings.html">Settings</a></li>
             </ul>
@@ -28,45 +29,69 @@
         </div>
         <!-- Content Section -->
         <div class="content">
-            <h2>Allocate Routes</h2>
-            <div class="allocation-container">
-                <p>Select rigs and allocate routes dynamically.</p>
+            <h2>Allocate Missions</h2>
+            <div class="assigned-missions">
+                <h3>Assigned Missions</h3>
                 <table>
                     <thead>
                         <tr>
-                            <th>Route ID</th>
-                            <th>Assigned Rigs</th>
-                            <th>Status</th>
+                            <th>Mission</th>
+                            <th>Assigned Rig</th>
+                            <th>% Completeness</th>
                             <th>Actions</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td>101</td>
-                            <td>Rig 1, Rig 2</td>
-                            <td>Active</td>
-                            <td>
-                                <button class="details">Details</button>
-                                <button class="stop">Stop</button>
-                            </td>
+                            <td>Mission #1</td>
+                            <td>Alice</td>
+                            <td>85%</td>
+                            <td><button class="reallocate">Reallocate</button></td>
                         </tr>
                         <tr>
-                            <td>102</td>
-                            <td>Rig 3</td>
-                            <td>Idle</td>
-                            <td>
-                                <button class="details">Details</button>
-                                <button class="start">Start</button>
-                            </td>
+                            <td>Mission #2</td>
+                            <td>Bob</td>
+                            <td>50%</td>
+                            <td><button class="reallocate">Reallocate</button></td>
                         </tr>
                         <tr>
-                            <td>103</td>
-                            <td>Rig 4, Rig 5</td>
-                            <td>Pending</td>
-                            <td>
-                                <button class="details">Details</button>
-                                <button class="assign">Assign</button>
-                            </td>
+                            <td>Mission #3</td>
+                            <td>Bob</td>
+                            <td>50%</td>
+                            <td><button class="reallocate">Reallocate</button></td>
+                        </tr>
+                        <tr>
+                            <td>Mission #4</td>
+                            <td>Charlie</td>
+                            <td>30%</td>
+                            <td><button class="reallocate">Reallocate</button></td>
+                        </tr>
+                        <tr>
+                            <td>Mission #5</td>
+                            <td>Diana</td>
+                            <td>90%</td>
+                            <td><button class="reallocate">Reallocate</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="unallocated-missions">
+                <h3>Unallocated Missions</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Mission</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Mission #6</td>
+                            <td><button class="allocate">Allocate</button></td>
+                        </tr>
+                        <tr>
+                            <td>Mission #7</td>
+                            <td><button class="allocate">Allocate</button></td>
                         </tr>
                     </tbody>
                 </table>
