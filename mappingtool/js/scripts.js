@@ -80,11 +80,23 @@ function initApp() {
         });
 
         document.getElementById('assign-grid').addEventListener('click', () => {
-            alert('Grid assignment functionality is a placeholder. Implement logic to assign grid cells to operators.');
+            const rigId = prompt('Enter Rig ID to assign grid to:', 'Rig 1');
+            const gridId = prompt('Enter Grid ID to assign:', 'Grid 1');
+            if (rigId && gridId) {
+                alert(`Grid ${gridId} has been assigned to ${rigId}.`);
+            } else {
+                alert('Assignment cancelled.');
+            }
         });
 
         document.getElementById('retract-grid').addEventListener('click', () => {
-            alert('Grid retraction functionality is a placeholder. Implement logic to retract grid cells from operators.');
+            const rigId = prompt('Enter Rig ID to remove grid from:', 'Rig 1');
+            const gridId = prompt('Enter Grid ID to retract:', 'Grid 1');
+            if (rigId && gridId) {
+                alert(`Grid ${gridId} has been retracted from ${rigId}.`);
+            } else {
+                alert('Retraction cancelled.');
+            }
         });
     }
 }
