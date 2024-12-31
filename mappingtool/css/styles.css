@@ -29,10 +29,11 @@ body {
     padding: 1em;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: flex-start;
 }
 .sidebar h3 {
     margin-top: 0;
+    margin-bottom: 0.5em;
 }
 .sidebar ul {
     padding: 0;

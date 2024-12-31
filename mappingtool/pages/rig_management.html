@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rig Management</title>
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <div class="header">
+        <h1>Rig Management</h1>
+    </div>
+    <!-- Sidebar -->
+    <div class="container">
+        <div class="sidebar">
+            <h3>Menu</h3>
+            <ul>
+                <li><a href="dashboard.html">Dashboard</a></li>
+                <li><a href="rig_management.html" class="active">Rig Management</a></li>
+                <li><a href="route_allocation.html">Route Allocation</a></li>
+                <li><a href="analytics.html">Analytics</a></li>
+                <li><a href="settings.html">Settings</a></li>
+            </ul>
+            <footer>
+                <p>&copy; 2024 Mapping Software</p>
+            </footer>
+        </div>
+        <!-- Content Section -->
+        <div class="content">
+            <h2>Manage Rigs</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Rig ID</th>
+                        <th>Status</th>
+                        <th>Assigned Segment</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>Active</td>
+                        <td>Segment A</td>
+                        <td class="action-buttons">
+                            <button class="stop">Stop</button>
+                            <button class="details">Details</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Idle</td>
+                        <td>Segment B</td>
+                        <td class="action-buttons">
+                            <button class="start">Start</button>
+                            <button class="details">Details</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>Error</td>
+                        <td>Segment C</td>
+                        <td class="action-buttons">
+                            <button class="details">Fix</button>
+                            <button class="details">Details</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <!-- Footer -->
+    <div class="footer">
+        <p>Designed for centralized mapping control & monitoring</p>
+    </div>
+    <script src="../js/scripts.js"></script>
+</body>
+</html>
