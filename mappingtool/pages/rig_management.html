@@ -19,6 +19,7 @@
                 <li><a href="dashboard.html">Dashboard</a></li>
                 <li><a href="rig_management.html" class="active">Rig Management</a></li>
                 <li><a href="route_allocation.html">Route Allocation</a></li>
+                <li><a href="grid_management.html">Grid Management</a></li>
                 <li><a href="analytics.html">Analytics</a></li>
                 <li><a href="settings.html">Settings</a></li>
             </ul>
@@ -34,7 +35,8 @@
                     <tr>
                         <th>Rig ID</th>
                         <th>Status</th>
-                        <th>Assigned Segment</th>
+                        <th>Assigned Missions</th>
+                        <th>% Completeness</th>
                         <th>Actions</th>
                     </tr>
                 </thead>
@@ -42,7 +44,16 @@
                     <tr>
                         <td>1</td>
                         <td>Active</td>
-                        <td>Segment A</td>
+                        <td>
+                            <ul>
+                                <li>Mission Alpha</li>
+                                <li>Mission Beta</li>
+                                <li>Mission Gamma</li>
+                                <li>Mission Delta</li>
+                                <li>Mission Epsilon</li>
+                            </ul>
+                        </td>
+                        <td>75%</td>
                         <td class="action-buttons">
                             <button class="stop">Stop</button>
                             <button class="details">Details</button>
@@ -51,7 +62,16 @@
                     <tr>
                         <td>2</td>
                         <td>Idle</td>
-                        <td>Segment B</td>
+                        <td>
+                            <ul>
+                                <li>Mission Zeta</li>
+                                <li>Mission Eta</li>
+                                <li>Mission Theta</li>
+                                <li>Mission Iota</li>
+                                <li>Mission Kappa</li>
+                            </ul>
+                        </td>
+                        <td>50%</td>
                         <td class="action-buttons">
                             <button class="start">Start</button>
                             <button class="details">Details</button>
@@ -60,9 +80,18 @@
                     <tr>
                         <td>3</td>
                         <td>Error</td>
-                        <td>Segment C</td>
+                        <td>
+                            <ul>
+                                <li>Mission Lambda</li>
+                                <li>Mission Mu</li>
+                                <li>Mission Nu</li>
+                                <li>Mission Xi</li>
+                                <li>Mission Omicron</li>
+                            </ul>
+                        </td>
+                        <td>30%</td>
                         <td class="action-buttons">
-                            <button class="details">Fix</button>
+                            <button class="fix">Fix</button>
                             <button class="details">Details</button>
                         </td>
                     </tr>
