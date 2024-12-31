@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Route Allocation</title>
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <div class="header">
+        <h1>Route Allocation</h1>
+    </div>
+    <!-- Sidebar -->
+    <div class="container">
+        <div class="sidebar">
+            <h3>Menu</h3>
+            <ul>
+                <li><a href="dashboard.html">Dashboard</a></li>
+                <li><a href="rig_management.html">Rig Management</a></li>
+                <li><a href="route_allocation.html" class="active">Route Allocation</a></li>
+                <li><a href="analytics.html">Analytics</a></li>
+                <li><a href="settings.html">Settings</a></li>
+            </ul>
+            <footer>
+                <p>&copy; 2024 Mapping Software</p>
+            </footer>
+        </div>
+        <!-- Content Section -->
+        <div class="content">
+            <h2>Allocate Routes</h2>
+            <div class="allocation-container">
+                <p>Select rigs and allocate routes dynamically.</p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Route ID</th>
+                            <th>Assigned Rigs</th>
+                            <th>Status</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>101</td>
+                            <td>Rig 1, Rig 2</td>
+                            <td>Active</td>
+                            <td>
+                                <button class="details">Details</button>
+                                <button class="stop">Stop</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>102</td>
+                            <td>Rig 3</td>
+                            <td>Idle</td>
+                            <td>
+                                <button class="details">Details</button>
+                                <button class="start">Start</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>103</td>
+                            <td>Rig 4, Rig 5</td>
+                            <td>Pending</td>
+                            <td>
+                                <button class="details">Details</button>
+                                <button class="assign">Assign</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <!-- Footer -->
+    <div class="footer">
+        <p>Designed for centralized mapping control & monitoring</p>
+    </div>
+    <script src="../js/scripts.js"></script>
+</body>
+</html>
