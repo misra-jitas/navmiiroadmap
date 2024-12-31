@@ -24,6 +24,7 @@ function initApp() {
     // Add navigation links for all menu items dynamically
     const menuItems = [
         { name: 'Dashboard', link: 'dashboard.html' },
+         { name: 'Drive-Time Estimator', link: 'drive_time_estimator.html' }
         { name: 'Rig Management', link: 'rig_management.html' },
         { name: 'Route Allocation', link: 'route_allocation.html' },
         { name: 'Grid Management', link: 'grid_management.html' },
