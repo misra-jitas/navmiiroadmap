@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drive-Time Estimator</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <style>
+        .estimator-form {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .estimator-form label {
+            font-weight: bold;
+            align-self: center;
+        }
+
+        .estimator-form select,
+        .estimator-form button {
+            padding: 10px;
+            font-size: 14px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .estimator-form button {
+            width: fit-content;
+            background-color: #007bff;
+            color: white;
+            cursor: pointer;
+        }
+
+        .estimator-form button:hover {
+            background-color: #0056b3;
+        }
+
+        .generated-route {
+            margin-top: 20px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+
+        .generated-route p {
+            margin: 0;
+            font-weight: bold;
+        }
+
+        .generated-route button {
+            margin-top: 10px;
+            padding: 8px 12px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .generated-route button:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <div class="header">
+        <h1>Drive-Time Estimator</h1>
+    </div>
+    <!-- Sidebar -->
+    <div class="container">
+        <div class="sidebar">
+            <h3>Menu</h3>
+            <ul>
+                <li><a href="dashboard.html">Dashboard</a></li>
+                <li><a href="rig_management.html">Rig Management</a></li>
+                <li><a href="route_allocation.html">Route Allocation</a></li>
+                <li><a href="grid_management.html">Grid Management</a></li>
+                <li><a href="analytics.html">Analytics</a></li>
+                <li><a href="settings.html">Settings</a></li>
+                <li><a href="drive_time_estimator.html" class="active">Drive-Time Estimator</a></li>
+            </ul>
+            <footer>
+                <p>&copy; 2024 Mapping Software</p>
+            </footer>
+        </div>
+        <!-- Content Section -->
+        <div class="content">
+            <h2>Generate Drive-Time Estimation Route</h2>
+            <form class="estimator-form">
+                <label for="mission-select">Select Mission:</label>
+                <select id="mission-select">
+                    <option value="Mission #1">Mission #1</option>
+                    <option value="Mission #2">Mission #2</option>
+                    <option value="Mission #3">Mission #3</option>
+                    <option value="Mission #4">Mission #4</option>
+                </select>
+
+                <label for="route-type">Route Type:</label>
+                <select id="route-type">
+                    <option value="cpp">Drive All Roads (CPP)</option>
+                    <option value="tsp">Visit All Points (TSP)</option>
+                </select>
+
+                <button type="button" id="generate-route">Generate Route</button>
+            </form>
+
+            <div class="generated-route" id="generated-route" style="display: none;">
+                <p>Generated Route:</p>
+                <p id="route-details">Mission: Mission #1 | Type: CPP | Estimated Time: 2h 30m</p>
+                <button id="share-route">Share Route with Rig</button>
+            </div>
+        </div>
+    </div>
+    <!-- Footer -->
+    <div class="footer">
+        <p>Designed for centralized mapping control & monitoring</p>
+    </div>
+    <script>
+        document.getElementById('generate-route').addEventListener('click', () => {
+            const mission = document.getElementById('mission-select').value;
+            const routeType = document.getElementById('route-type').value;
+            const routeTypeText = routeType === 'cpp' ? 'CPP (Drive All Roads)' : 'TSP (Visit All Points)';
+            const estimatedTime = routeType === 'cpp' ? '2h 30m' : '1h 45m'; // Example times
+
+            const routeDetails = `Mission: ${mission} | Type: ${routeTypeText} | Estimated Time: ${estimatedTime}`;
+            document.getElementById('route-details').textContent = routeDetails;
+            document.getElementById('generated-route').style.display = 'block';
+        });
+
+        document.getElementById('share-route').addEventListener('click', () => {
+            const routeDetails = document.getElementById('route-details').textContent;
+            alert(`Route Shared with Rig:\n${routeDetails}`);
+        });
+    </script>
+</body>
+</html>
