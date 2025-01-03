@@ -1,7 +1,7 @@
 // Screen Data
 const screens = [
-    {
-        name: "Grid Management UI",
+     {
+        name: "DCA Drive Collection Area",
         id: "grid-management",
         description: "Manage grid cells, resize, assign, and visualize grid metadata."
     },
