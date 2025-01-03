@@ -13,7 +13,7 @@ const screens = [
     { name: "Reports", id: "reports" }
 ];
 
-// Generate Menu
+// Generate Sidebar Menu
 function generateMenu() {
     const menu = document.getElementById("menu");
     if (!menu) {
