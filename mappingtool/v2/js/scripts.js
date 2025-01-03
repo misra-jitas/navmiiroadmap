@@ -23,34 +23,16 @@ function generateMenu() {
 
     screens.forEach(screen => {
         const link = document.createElement("a");
-        link.href = `#${screen.id}`;
+        link.href = `/mappingtool/v2/pages/${screen.id}.html`;
         link.textContent = screen.name;
-        link.onclick = (event) => {
-            event.preventDefault();
-            loadScreen(screen.id);
-        };
         menu.appendChild(link);
     });
 
     console.log("Menu generated successfully:", menu.innerHTML);
 }
 
-// Load Screen Content
-function loadScreen(screenId) {
-    const content = document.getElementById("content");
-    if (!content) {
-        console.error("Content element not found!");
-        return;
-    }
-    content.innerHTML = `
-        <h1>${screenId.replace("-", " ")}</h1>
-        <p>Content for ${screenId} goes here.</p>
-    `;
-    console.log(`Screen loaded: ${screenId}`);
-}
-
 // Initialize Menu on DOM Ready
 document.addEventListener("DOMContentLoaded", () => {
-    console.log("DOM fully loaded. Initializing app...");
+    console.log("DOM fully loaded. Initializing menu...");
     generateMenu();
 });
