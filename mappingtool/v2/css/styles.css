@@ -43,10 +43,30 @@ body {
 
 /* Content Styles */
 #content {
-    margin-left: 300px; /* Width of the sidebar */
+    margin-left: 300px; /* Sidebar width */
     padding: 20px;
     flex: 1;
     overflow-y: auto;
     height: 100%;
     box-sizing: border-box;
+}
+
+/* Center Content for Index */
+.center-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+}
+
+.welcome-section {
+    max-width: 800px;
+}
+
+.cover-image {
+    width: 100%;
+    max-width: 600px;
+    height: auto;
+    margin-bottom: 20px;
 }
