@@ -19,7 +19,7 @@
             <div class="map-area">
                 <p>No DCA loaded. Upload a file to get started.</p>
             </div>
-            <div class="next-button">
+            <div class="navigation-buttons">
                 <button id="to-step-2">Next</button>
             </div>
         </div>
@@ -27,8 +27,14 @@
         <!-- Combined Steps: Mission Division, Routing Setup, and Area Adjustment -->
         <div id="step-2" class="grid-management-section" style="display: none;">
             <h2>DCA Management Platform - Mission Division</h2>
-            <!-- Top Bar for Drive Conditions -->
-            <div class="drive-conditions">
+            <!-- Left Panel for Tools and Drive Conditions -->
+            <div class="left-panel" style="float: left; width: 20%; margin-right: 20px;">
+                <h3>Tools</h3>
+                <button id="draw-square">Square</button>
+                <button id="draw-polygon">Polygon</button>
+                <button id="move-tool">Move</button>
+
+                <h3>Drive Conditions</h3>
                 <label for="weather">Weather:</label>
                 <select id="weather">
                     <option value="clear">Clear</option>
@@ -45,22 +51,42 @@
             </div>
 
             <!-- Map Area -->
-            <div class="map-area">
-                <img src="/mappingtool/v2/images/san_antonio.png" alt="Fake DCA" id="fake-dca">
+            <div class="map-area" style="float: left; width: 75%;">
+                <img src="/mappingtool/v2/images/san_antonio.png" alt="Fake DCA" id="fake-dca" style="max-width: 100%; height: auto;">
                 <p>Draw your mission on the map.</p>
             </div>
+
+            <div style="clear: both;"></div>
 
             <!-- Information Panel -->
             <div class="info-panel">
                 <h3>Mission Details</h3>
                 <p id="mission-info">No mission defined.</p>
-                <button id="request-drive-time">Request Drive Time</button>
+                <button id="request-drive-time">Estimate Drive Time</button>
                 <p id="drive-time">Drive time will appear here.</p>
             </div>
 
-            <!-- Buttons -->
-            <div class="next-button">
-                <button id="finalize">Finalize</button>
+            <!-- Navigation Buttons -->
+            <div class="navigation-buttons">
+                <button id="to-step-1">Previous</button>
+                <button id="to-step-3">Next</button>
+            </div>
+        </div>
+
+        <!-- Next Step: Mission Selected -->
+        <div id="step-3" class="grid-management-section" style="display: none;">
+            <h2>DCA Management Platform - Mission Selected</h2>
+            <div class="map-area">
+                <img src="/mappingtool/v2/images/san_antonio_mission1.png" alt="Mission Area" id="mission-area" style="max-width: 100%; height: auto;">
+                <p>Selected Mission: San Antonio Mission 1</p>
+            </div>
+            <div class="info-panel">
+                <h3>Drive Time Details</h3>
+                <p>Estimated Drive Time: 20 minutes</p>
+            </div>
+            <div class="navigation-buttons">
+                <button id="to-step-2">Previous</button>
+                <button id="finalize-mission">Finalize Mission</button>
             </div>
         </div>
     </div>
@@ -70,25 +96,47 @@
         document.getElementById('to-step-2').addEventListener('click', () => {
             document.getElementById('step-1').style.display = 'none';
             document.getElementById('step-2').style.display = 'block';
-
-            // Simulate loading a fake DCA
-            const mapArea = document.querySelector('.map-area');
-            mapArea.innerHTML = '<img src="/mappingtool/v2/images/san_antonio.png" alt="Fake DCA" id="fake-dca">';
         });
 
-        // Simulate Drawing on Map and Requesting Drive Time
+        // Step 2 to Step 1 Navigation
+        document.getElementById('to-step-1').addEventListener('click', () => {
+            document.getElementById('step-2').style.display = 'none';
+            document.getElementById('step-1').style.display = 'block';
+        });
+
+        // Simulate Drawing on Map
+        const mapArea = document.getElementById('fake-dca');
+        document.getElementById('draw-square').addEventListener('click', () => {
+            mapArea.src = '/mappingtool/v2/images/san_antonio_mission1.png';
+            document.getElementById('mission-info').textContent = "Mission Area: Square Drawn";
+        });
+        document.getElementById('draw-polygon').addEventListener('click', () => {
+            mapArea.src = '/mappingtool/v2/images/san_antonio_mission1.png';
+            document.getElementById('mission-info').textContent = "Mission Area: Polygon Drawn";
+        });
+
+        // Simulate Drive Time Estimation
         document.getElementById('request-drive-time').addEventListener('click', () => {
             const weather = document.getElementById('weather').value;
             const traffic = document.getElementById('traffic').value;
-            const missionInfo = "Mission Area: Sample Area";
-
-            document.getElementById('mission-info').textContent = missionInfo;
             document.getElementById('drive-time').textContent = `Estimated Drive Time (Weather: ${weather}, Traffic: ${traffic}): 15 minutes`;
         });
 
-        // Finalize Button
-        document.getElementById('finalize').addEventListener('click', () => {
-            alert('Mission finalized with current settings.');
+        // Step 2 to Step 3 Navigation
+        document.getElementById('to-step-3').addEventListener('click', () => {
+            document.getElementById('step-2').style.display = 'none';
+            document.getElementById('step-3').style.display = 'block';
+        });
+
+        // Step 3 to Step 2 Navigation
+        document.getElementById('to-step-2').addEventListener('click', () => {
+            document.getElementById('step-3').style.display = 'none';
+            document.getElementById('step-2').style.display = 'block';
+        });
+
+        // Finalize Mission
+        document.getElementById('finalize-mission').addEventListener('click', () => {
+            alert('Mission finalized with selected settings.');
         });
     </script>
 </body>
