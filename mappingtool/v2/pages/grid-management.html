@@ -82,20 +82,29 @@
             </div>
             <div class="info-panel">
                 <h3>Drive Time Details</h3>
-                <p>Estimated Drive Time: 20 minutes</p>
+                <p id="drive-time-summary">Estimated Drive Time: 20 minutes</p>
             </div>
             <div class="navigation-buttons">
                 <button id="to-step-2">Previous</button>
                 <button id="finalize-mission">Finalize Mission</button>
             </div>
         </div>
+
+        <!-- Mission List -->
+        <div id="mission-list-section" style="display: none;">
+            <h2>Finalized Missions</h2>
+            <div id="mission-list"></div>
+        </div>
     </div>
-    <script src="/mappingtool/v2/js/scripts.js"></script>
     <script>
+        let currentMission = 1;
+        const missionList = [];
+
         // Step 1 to Step 2 Navigation
         document.getElementById('to-step-2').addEventListener('click', () => {
             document.getElementById('step-1').style.display = 'none';
             document.getElementById('step-2').style.display = 'block';
+            updateMissionDetails();
         });
 
         // Step 2 to Step 1 Navigation
@@ -107,12 +116,12 @@
         // Simulate Drawing on Map
         const mapArea = document.getElementById('fake-dca');
         document.getElementById('draw-square').addEventListener('click', () => {
-            mapArea.src = '/mappingtool/v2/images/san_antonio_mission1.png';
-            document.getElementById('mission-info').textContent = "Mission Area: Square Drawn";
+            mapArea.src = `/mappingtool/v2/images/san_antonio_mission${currentMission}.png`;
+            document.getElementById('mission-info').textContent = `Mission ${currentMission} Area: Square Drawn`;
         });
         document.getElementById('draw-polygon').addEventListener('click', () => {
-            mapArea.src = '/mappingtool/v2/images/san_antonio_mission1.png';
-            document.getElementById('mission-info').textContent = "Mission Area: Polygon Drawn";
+            mapArea.src = `/mappingtool/v2/images/san_antonio_mission${currentMission}.png`;
+            document.getElementById('mission-info').textContent = `Mission ${currentMission} Area: Polygon Drawn`;
         });
 
         // Simulate Drive Time Estimation
@@ -126,6 +135,8 @@
         document.getElementById('to-step-3').addEventListener('click', () => {
             document.getElementById('step-2').style.display = 'none';
             document.getElementById('step-3').style.display = 'block';
+            document.getElementById('mission-area').src = `/mappingtool/v2/images/san_antonio_mission${currentMission}.png`;
+            document.getElementById('drive-time-summary').textContent = `Estimated Drive Time: 15 minutes`;
         });
 
         // Step 3 to Step 2 Navigation
@@ -136,8 +147,52 @@
 
         // Finalize Mission
         document.getElementById('finalize-mission').addEventListener('click', () => {
-            alert('Mission finalized with selected settings.');
+            missionList.push(`Mission ${currentMission}`);
+            updateMissionList();
+            alert(`Mission ${currentMission} finalized with selected settings.`);
+            currentMission++;
+            resetForNextMission();
         });
+
+        // Update Mission List
+        function updateMissionList() {
+            const missionContainer = document.getElementById('mission-list');
+            missionContainer.innerHTML = '';
+            missionList.forEach((mission, index) => {
+                const missionItem = document.createElement('div');
+                missionItem.innerHTML = `
+                    <p>${mission}</p>
+                    <button onclick="editMission(${index + 1})">Edit</button>
+                    <button onclick="deleteMission(${index + 1})">Delete</button>
+                `;
+                missionContainer.appendChild(missionItem);
+            });
+            document.getElementById('mission-list-section').style.display = 'block';
+        }
+
+        // Reset for Next Mission
+        function resetForNextMission() {
+            document.getElementById('step-3').style.display = 'none';
+            document.getElementById('step-2').style.display = 'block';
+            document.getElementById('mission-info').textContent = 'No mission defined.';
+            document.getElementById('drive-time').textContent = 'Drive time will appear here.';
+        }
+
+        // Edit Mission
+        function editMission(missionNumber) {
+            alert(`Editing Mission ${missionNumber}`);
+        }
+
+        // Delete Mission
+        function deleteMission(missionNumber) {
+            missionList.splice(missionNumber - 1, 1);
+            updateMissionList();
+        }
+
+        // Update Mission Details
+        function updateMissionDetails() {
+            document.getElementById('mission-info').textContent = `Prepare Mission ${currentMission}`;
+        }
     </script>
 </body>
 </html>
