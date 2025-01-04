@@ -24,104 +24,71 @@
             </div>
         </div>
 
-        <!-- Step 2: Mission Division -->
+        <!-- Combined Steps: Mission Division, Routing Setup, and Area Adjustment -->
         <div id="step-2" class="grid-management-section" style="display: none;">
             <h2>DCA Management Platform - Mission Division</h2>
-            <div class="toolbar">
-                <button id="draw-square">Draw Square</button>
-                <button id="draw-polygon">Draw Polygon</button>
-                <button id="undo">Undo</button>
-                <button id="redo">Redo</button>
-            </div>
-            <div class="map-area">
-                <p>Draw mission boundaries on the map.</p>
-            </div>
-            <div class="next-button">
-                <button id="to-step-3">Next</button>
-            </div>
-        </div>
-
-        <!-- Step 3: Routing Setup -->
-        <div id="step-3" class="grid-management-section" style="display: none;">
-            <h2>DCA Management Platform - Routing Setup</h2>
-            <div class="routing-options">
-                <label for="routing-type">Select Routing Type:</label>
-                <select id="routing-type">
-                    <option value="blanket">Blanket Cover</option>
-                    <option value="highways">Highways</option>
-                    <option value="streets">Selected Streets</option>
-                </select>
-                <h3>Environmental Factors</h3>
+            <!-- Top Bar for Drive Conditions -->
+            <div class="drive-conditions">
                 <label for="weather">Weather:</label>
-                <input type="checkbox" id="weather" value="weather">
+                <select id="weather">
+                    <option value="clear">Clear</option>
+                    <option value="rain">Rain</option>
+                    <option value="snow">Snow</option>
+                </select>
+
                 <label for="traffic">Traffic:</label>
-                <input type="checkbox" id="traffic" value="traffic">
+                <select id="traffic">
+                    <option value="low">Low</option>
+                    <option value="medium">Medium</option>
+                    <option value="high">High</option>
+                </select>
             </div>
-            <div class="map-area">
-                <p>Set routing preferences to calculate coverage time.</p>
-            </div>
-            <div class="next-button">
-                <button id="to-step-4">Next</button>
-            </div>
-        </div>
 
-        <!-- Step 4: Area Adjustment -->
-        <div id="step-4" class="grid-management-section" style="display: none;">
-            <h2>DCA Management Platform - Area Adjustment</h2>
-            <div class="adjustment-tools">
-                <button id="resize">Resize Area</button>
-                <button id="merge">Merge Areas</button>
-                <button id="split">Split Areas</button>
-            </div>
+            <!-- Map Area -->
             <div class="map-area">
-                <p>Adjust mission boundaries for optimal coverage.</p>
+                <img src="/mappingtool/v2/images/san_antonio.png" alt="Fake DCA" id="fake-dca">
+                <p>Draw your mission on the map.</p>
             </div>
-            <div class="next-button">
-                <button id="to-step-5">Next</button>
-            </div>
-        </div>
 
-        <!-- Step 5: Save and Summary -->
-        <div id="step-5" class="grid-management-section" style="display: none;">
-            <h2>DCA Management Platform - Save and Summary</h2>
-            <div class="summary">
-                <p>Review your mission plan before finalizing:</p>
-                <ul>
-                    <li>Mission 1: Details...</li>
-                    <li>Mission 2: Details...</li>
-                    <!-- Add more as necessary -->
-                </ul>
+            <!-- Information Panel -->
+            <div class="info-panel">
+                <h3>Mission Details</h3>
+                <p id="mission-info">No mission defined.</p>
+                <button id="request-drive-time">Request Drive Time</button>
+                <p id="drive-time">Drive time will appear here.</p>
             </div>
-            <div class="finalize-button">
+
+            <!-- Buttons -->
+            <div class="next-button">
                 <button id="finalize">Finalize</button>
             </div>
         </div>
     </div>
     <script src="/mappingtool/v2/js/scripts.js"></script>
     <script>
-        // Navigation logic between steps
+        // Step 1 to Step 2 Navigation
         document.getElementById('to-step-2').addEventListener('click', () => {
             document.getElementById('step-1').style.display = 'none';
             document.getElementById('step-2').style.display = 'block';
+
+            // Simulate loading a fake DCA
+            const mapArea = document.querySelector('.map-area');
+            mapArea.innerHTML = '<img src="/mappingtool/v2/images/san_antonio.png" alt="Fake DCA" id="fake-dca">';
         });
 
-        document.getElementById('to-step-3').addEventListener('click', () => {
-            document.getElementById('step-2').style.display = 'none';
-            document.getElementById('step-3').style.display = 'block';
+        // Simulate Drawing on Map and Requesting Drive Time
+        document.getElementById('request-drive-time').addEventListener('click', () => {
+            const weather = document.getElementById('weather').value;
+            const traffic = document.getElementById('traffic').value;
+            const missionInfo = "Mission Area: Sample Area";
+
+            document.getElementById('mission-info').textContent = missionInfo;
+            document.getElementById('drive-time').textContent = `Estimated Drive Time (Weather: ${weather}, Traffic: ${traffic}): 15 minutes`;
         });
 
-        document.getElementById('to-step-4').addEventListener('click', () => {
-            document.getElementById('step-3').style.display = 'none';
-            document.getElementById('step-4').style.display = 'block';
-        });
-
-        document.getElementById('to-step-5').addEventListener('click', () => {
-            document.getElementById('step-4').style.display = 'none';
-            document.getElementById('step-5').style.display = 'block';
-        });
-
+        // Finalize Button
         document.getElementById('finalize').addEventListener('click', () => {
-            alert('Mission plan finalized!');
+            alert('Mission finalized with current settings.');
         });
     </script>
 </body>
