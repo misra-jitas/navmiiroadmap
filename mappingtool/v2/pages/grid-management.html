@@ -78,11 +78,11 @@
             <h2>DCA Management Platform - Mission Selected</h2>
             <div class="map-area">
                 <img src="/mappingtool/v2/images/san_antonio_mission1.png" alt="Mission Area" id="mission-area" style="max-width: 100%; height: auto;">
-                <p>Selected Mission: San Antonio Mission 1</p>
+                <p id="selected-mission">Selected Mission: San Antonio Mission 1</p>
             </div>
             <div class="info-panel">
                 <h3>Drive Time Details</h3>
-                <p id="drive-time-summary">Estimated Drive Time: 20 minutes</p>
+                <p id="drive-time-summary">Estimated Drive Time: 6 hours</p>
             </div>
             <div class="navigation-buttons">
                 <button id="to-step-2">Previous</button>
@@ -93,7 +93,16 @@
         <!-- Mission List -->
         <div id="mission-list-section" style="display: none;">
             <h2>Finalized Missions</h2>
-            <div id="mission-list"></div>
+            <table id="mission-list">
+                <thead>
+                    <tr>
+                        <th>Mission</th>
+                        <th>Time</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
         </div>
     </div>
     <script>
@@ -128,7 +137,8 @@
         document.getElementById('request-drive-time').addEventListener('click', () => {
             const weather = document.getElementById('weather').value;
             const traffic = document.getElementById('traffic').value;
-            document.getElementById('drive-time').textContent = `Estimated Drive Time (Weather: ${weather}, Traffic: ${traffic}): 15 minutes`;
+            const driveTime = currentMission === 1 ? '6 hours' : '6 hours 10 minutes';
+            document.getElementById('drive-time').textContent = `Estimated Drive Time (Weather: ${weather}, Traffic: ${traffic}): ${driveTime}`;
         });
 
         // Step 2 to Step 3 Navigation
@@ -136,7 +146,8 @@
             document.getElementById('step-2').style.display = 'none';
             document.getElementById('step-3').style.display = 'block';
             document.getElementById('mission-area').src = `/mappingtool/v2/images/san_antonio_mission${currentMission}.png`;
-            document.getElementById('drive-time-summary').textContent = `Estimated Drive Time: 15 minutes`;
+            document.getElementById('selected-mission').textContent = `Selected Mission: San Antonio Mission ${currentMission}`;
+            document.getElementById('drive-time-summary').textContent = `Estimated Drive Time: ${currentMission === 1 ? '6 hours' : '6 hours 10 minutes'}`;
         });
 
         // Step 3 to Step 2 Navigation
@@ -147,7 +158,8 @@
 
         // Finalize Mission
         document.getElementById('finalize-mission').addEventListener('click', () => {
-            missionList.push(`Mission ${currentMission}`);
+            const driveTime = currentMission === 1 ? '6 hours' : '6 hours 10 minutes';
+            missionList.push({ mission: `Mission ${currentMission}`, time: driveTime });
             updateMissionList();
             alert(`Mission ${currentMission} finalized with selected settings.`);
             currentMission++;
@@ -156,16 +168,19 @@
 
         // Update Mission List
         function updateMissionList() {
-            const missionContainer = document.getElementById('mission-list');
-            missionContainer.innerHTML = '';
-            missionList.forEach((mission, index) => {
-                const missionItem = document.createElement('div');
-                missionItem.innerHTML = `
-                    <p>${mission}</p>
-                    <button onclick="editMission(${index + 1})">Edit</button>
-                    <button onclick="deleteMission(${index + 1})">Delete</button>
+            const missionTableBody = document.querySelector('#mission-list tbody');
+            missionTableBody.innerHTML = '';
+            missionList.forEach((missionData, index) => {
+                const missionRow = document.createElement('tr');
+                missionRow.innerHTML = `
+                    <td>${missionData.mission}</td>
+                    <td>${missionData.time}</td>
+                    <td>
+                        <button onclick="editMission(${index + 1})">Edit</button>
+                        <button onclick="deleteMission(${index + 1})">Delete</button>
+                    </td>
                 `;
-                missionContainer.appendChild(missionItem);
+                missionTableBody.appendChild(missionRow);
             });
             document.getElementById('mission-list-section').style.display = 'block';
         }
