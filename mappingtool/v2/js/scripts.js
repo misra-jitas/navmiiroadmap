@@ -77,31 +77,42 @@ function generateMenu() {
     }
 
     screens.forEach(group => {
+        // Add the subtitle regardless of whether there are screens
         const subtitle = document.createElement("h3");
         subtitle.textContent = group.subtitle;
         subtitle.className = "menu-subtitle";
         menu.appendChild(subtitle);
 
-        group.screens.forEach(screen => {
-            const container = document.createElement("div");
-            container.className = "menu-item";
+        // Check if the screens array exists and has items
+        if (group.screens && group.screens.length > 0) {
+            group.screens.forEach(screen => {
+                const container = document.createElement("div");
+                container.className = "menu-item";
 
-            const link = document.createElement("a");
-            link.href = `/mappingtool/v2/pages/${screen.id}.html`;
-            link.target = "_blank"; // Opens the link in a new tab
-            link.textContent = screen.name;
+                const link = document.createElement("a");
+                link.href = `/mappingtool/v2/pages/${screen.id}.html`;
+                link.target = "_blank"; // Opens the link in a new tab
+                link.textContent = screen.name;
 
-            const description = document.createElement("p");
-            description.textContent = screen.description;
+                const description = document.createElement("p");
+                description.textContent = screen.description;
 
-            container.appendChild(link);
-            container.appendChild(description);
-            menu.appendChild(container);
-        });
+                container.appendChild(link);
+                container.appendChild(description);
+                menu.appendChild(container);
+            });
+        } else {
+            // Add a placeholder if there are no screens
+            const placeholder = document.createElement("p");
+            placeholder.textContent = "No items available.";
+            placeholder.className = "menu-placeholder";
+            menu.appendChild(placeholder);
+        }
     });
 
     console.log("Menu generated successfully:", menu.innerHTML);
 }
+
 
 
 // Initialize Menu on DOM Ready
