@@ -5,124 +5,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DCA Management Platform</title>
     <link rel="stylesheet" href="/mappingtool/v2/css/styles.css">
+    <style>
+        .work-in-progress {
+            text-align: center;
+            font-size: 1.5em;
+            margin-top: 20px;
+            color: #555;
+        }
+    </style>
 </head>
 <body>
     <div id="menu"></div>
     <div id="content" class="center-content">
-        <!-- Step 1: DCA Loading -->
-        <div id="step-1" class="grid-management-section">
-            <h2>DCA Management Platform - DCA Loading</h2>
-            <div class="upload-section">
-                <h3>Upload DCA</h3>
-                <input type="file" id="dca-upload" accept=".json,.geojson">
-            </div>
-            <div class="map-area">
-                <p>No DCA loaded. Upload a file to get started.</p>
-            </div>
-            <div class="next-button">
-                <button id="to-step-2">Next</button>
-            </div>
-        </div>
-
-        <!-- Step 2: Mission Division -->
-        <div id="step-2" class="grid-management-section" style="display: none;">
-            <h2>DCA Management Platform - Mission Division</h2>
-            <div class="toolbar">
-                <button id="draw-square">Draw Square</button>
-                <button id="draw-polygon">Draw Polygon</button>
-                <button id="undo">Undo</button>
-                <button id="redo">Redo</button>
-            </div>
-            <div class="map-area">
-                <p>Draw mission boundaries on the map.</p>
-            </div>
-            <div class="next-button">
-                <button id="to-step-3">Next</button>
-            </div>
-        </div>
-
-        <!-- Step 3: Routing Setup -->
-        <div id="step-3" class="grid-management-section" style="display: none;">
-            <h2>DCA Management Platform - Routing Setup</h2>
-            <div class="routing-options">
-                <label for="routing-type">Select Routing Type:</label>
-                <select id="routing-type">
-                    <option value="blanket">Blanket Cover</option>
-                    <option value="highways">Highways</option>
-                    <option value="streets">Selected Streets</option>
-                </select>
-                <h3>Environmental Factors</h3>
-                <label for="weather">Weather:</label>
-                <input type="checkbox" id="weather" value="weather">
-                <label for="traffic">Traffic:</label>
-                <input type="checkbox" id="traffic" value="traffic">
-            </div>
-            <div class="map-area">
-                <p>Set routing preferences to calculate coverage time.</p>
-            </div>
-            <div class="next-button">
-                <button id="to-step-4">Next</button>
-            </div>
-        </div>
-
-        <!-- Step 4: Area Adjustment -->
-        <div id="step-4" class="grid-management-section" style="display: none;">
-            <h2>DCA Management Platform - Area Adjustment</h2>
-            <div class="adjustment-tools">
-                <button id="resize">Resize Area</button>
-                <button id="merge">Merge Areas</button>
-                <button id="split">Split Areas</button>
-            </div>
-            <div class="map-area">
-                <p>Adjust mission boundaries for optimal coverage.</p>
-            </div>
-            <div class="next-button">
-                <button id="to-step-5">Next</button>
-            </div>
-        </div>
-
-        <!-- Step 5: Save and Summary -->
-        <div id="step-5" class="grid-management-section" style="display: none;">
-            <h2>DCA Management Platform - Save and Summary</h2>
-            <div class="summary">
-                <p>Review your mission plan before finalizing:</p>
-                <ul>
-                    <li>Mission 1: Details...</li>
-                    <li>Mission 2: Details...</li>
-                    <!-- Add more as necessary -->
-                </ul>
-            </div>
-            <div class="finalize-button">
-                <button id="finalize">Finalize</button>
-            </div>
+        <div class="welcome-section">
+            <img src="/mappingtool/v2/images/cover-image.png" alt="Mapping Tool Cover" class="cover-image">
+            <h1>Welcome to Mapping Estimator / DCA Management Platform</h1>
+          
+            <p>
+                Navigate through the menu on the left to explore detailed mockup and wireframes that represent the design and workflow of the Mapping Estimator Tool. Each screen highlights a specific functionality or service. 
+            </p>
+            
+            <h3 class="work-in-progress">Work in progress</h3>
         </div>
     </div>
     <script src="/mappingtool/v2/js/scripts.js"></script>
-    <script>
-        // Navigation logic between steps
-        document.getElementById('to-step-2').addEventListener('click', () => {
-            document.getElementById('step-1').style.display = 'none';
-            document.getElementById('step-2').style.display = 'block';
-        });
-
-        document.getElementById('to-step-3').addEventListener('click', () => {
-            document.getElementById('step-2').style.display = 'none';
-            document.getElementById('step-3').style.display = 'block';
-        });
-
-        document.getElementById('to-step-4').addEventListener('click', () => {
-            document.getElementById('step-3').style.display = 'none';
-            document.getElementById('step-4').style.display = 'block';
-        });
-
-        document.getElementById('to-step-5').addEventListener('click', () => {
-            document.getElementById('step-4').style.display = 'none';
-            document.getElementById('step-5').style.display = 'block';
-        });
-
-        document.getElementById('finalize').addEventListener('click', () => {
-            alert('Mission plan finalized!');
-        });
-    </script>
 </body>
 </html>
