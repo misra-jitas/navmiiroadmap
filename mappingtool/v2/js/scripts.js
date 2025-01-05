@@ -8,7 +8,8 @@ const screens = [
                 id: "grid-management",
                 description: "Manage grid cells, resize, assign, and visualize grid metadata."
             },
-           /*  {
+            /*
+            {
                 name: "Drive-Time Estimator UI",
                 id: "drive-time-estimator",
                 description: "Calculate drive times with overlays for weather, traffic, and construction."
@@ -33,9 +34,10 @@ const screens = [
                 id: "communication-hub",
                 description: "View live updates and provide feedback from the central hub."
             }
+            */
         ]
     },
-    */{
+    {
         subtitle: "Role-Specific Screens",
         screens: [
             /*
@@ -77,43 +79,34 @@ function generateMenu() {
     }
 
     screens.forEach(group => {
-        // Add the subtitle regardless of whether there are screens
+        // Always add the subtitle
         const subtitle = document.createElement("h3");
         subtitle.textContent = group.subtitle;
         subtitle.className = "menu-subtitle";
         menu.appendChild(subtitle);
 
-        // Check if the screens array exists and has items
+        // Only process the first item in each group
         if (group.screens && group.screens.length > 0) {
-            group.screens.forEach(screen => {
-                const container = document.createElement("div");
-                container.className = "menu-item";
+            const screen = group.screens[0]; // Only the first item
+            const container = document.createElement("div");
+            container.className = "menu-item";
 
-                const link = document.createElement("a");
-                link.href = `/mappingtool/v2/pages/${screen.id}.html`;
-                link.target = "_blank"; // Opens the link in a new tab
-                link.textContent = screen.name;
+            const link = document.createElement("a");
+            link.href = `/mappingtool/v2/pages/${screen.id}.html`;
+            link.target = "_blank"; // Opens the link in a new tab
+            link.textContent = screen.name;
 
-                const description = document.createElement("p");
-                description.textContent = screen.description;
+            const description = document.createElement("p");
+            description.textContent = screen.description;
 
-                container.appendChild(link);
-                container.appendChild(description);
-                menu.appendChild(container);
-            });
-        } else {
-            // Add a placeholder if there are no screens
-            const placeholder = document.createElement("p");
-            placeholder.textContent = "No items available.";
-            placeholder.className = "menu-placeholder";
-            menu.appendChild(placeholder);
+            container.appendChild(link);
+            container.appendChild(description);
+            menu.appendChild(container);
         }
     });
 
     console.log("Menu generated successfully:", menu.innerHTML);
 }
-
-
 
 // Initialize Menu on DOM Ready
 document.addEventListener("DOMContentLoaded", () => {
