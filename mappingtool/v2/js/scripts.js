@@ -6,7 +6,7 @@ const screens = [
             {
                 name: "DCA Management Platform",
                 id: "grid-management",
-                description: "Manage grid cells, resize, assign, and visualize grid metadata."
+                description: "Load DCA. Create, estimate and commit Missions in DCA"
             },
             /*
             {
