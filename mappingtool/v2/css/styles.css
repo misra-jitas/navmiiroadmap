@@ -65,7 +65,7 @@ body {
 }
 
 .cover-image {
-    width: 50%; /* Adjust the size as needed */
+    width: 40%; /* Adjust the size as needed */
     max-width: 400px; /* Limit the maximum width */
     height: auto;
     margin-bottom: 20px;
