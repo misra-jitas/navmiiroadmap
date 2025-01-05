@@ -67,7 +67,6 @@ const screens = [
     }
 ];
 
-// Generate Sidebar Menu
 function generateMenu() {
     const menu = document.getElementById("menu");
     if (!menu) {
@@ -87,6 +86,7 @@ function generateMenu() {
 
             const link = document.createElement("a");
             link.href = `/mappingtool/v2/pages/${screen.id}.html`;
+            link.target = "_blank"; // Opens the link in a new tab
             link.textContent = screen.name;
 
             const description = document.createElement("p");
@@ -100,6 +100,7 @@ function generateMenu() {
 
     console.log("Menu generated successfully:", menu.innerHTML);
 }
+
 
 // Initialize Menu on DOM Ready
 document.addEventListener("DOMContentLoaded", () => {
