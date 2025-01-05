@@ -8,7 +8,7 @@ const screens = [
                 id: "grid-management",
                 description: "Manage grid cells, resize, assign, and visualize grid metadata."
             },
-            {
+           /*  {
                 name: "Drive-Time Estimator UI",
                 id: "drive-time-estimator",
                 description: "Calculate drive times with overlays for weather, traffic, and construction."
@@ -35,9 +35,10 @@ const screens = [
             }
         ]
     },
-    {
+    */{
         subtitle: "Role-Specific Screens",
         screens: [
+            /*
             {
                 name: "Planner Dashboard",
                 id: "planner-dashboard",
@@ -63,6 +64,7 @@ const screens = [
                 id: "client-view",
                 description: "Simplified progress overview with cost-effectiveness visualization."
             }
+            */
         ]
     }
 ];
