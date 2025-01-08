@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Progress Tracker UI</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .header {
+            background-color: #333;
+            color: white;
+            padding: 10px;
+            text-align: center;
+        }
+        .container {
+            display: flex;
+            flex-direction: row;
+            height: 100vh;
+        }
+        .sidebar {
+            width: 20%;
+            background-color: #f4f4f4;
+            padding: 10px;
+            border-right: 1px solid #ccc;
+            overflow-y: auto;
+        }
+        .content {
+            width: 60%;
+            padding: 10px;
+        }
+        .updates {
+            width: 20%;
+            background-color: #f9f9f9;
+            padding: 10px;
+            border-left: 1px solid #ccc;
+            overflow-y: auto;
+        }
+        .mission-list {
+            list-style: none;
+            padding: 0;
+        }
+        .mission-item {
+            padding: 10px;
+            margin-bottom: 5px;
+            background: #ddd;
+            cursor: pointer;
+        }
+        .mission-item:hover {
+            background: #ccc;
+        }
+        .map-view {
+            height: 400px;
+            background-color: #eaeaea;
+            border: 1px solid #ccc;
+            margin-bottom: 20px;
+        }
+        .progress-bar {
+            height: 20px;
+            background: #ccc;
+            margin-bottom: 20px;
+            position: relative;
+        }
+        .progress-bar .progress {
+            height: 100%;
+            background: #4caf50;
+            width: 50%; /* Dynamic width based on progress */
+        }
+        .real-time-updates {
+            list-style: none;
+            padding: 0;
+        }
+        .update-item {
+            padding: 5px;
+            margin-bottom: 5px;
+            border-bottom: 1px solid #ddd;
+        }
+        .footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #f4f4f4;
+        }
+    </style>
+</head>
+<body>
+
+<div class="header">
+    <h1>Progress Tracker UI</h1>
+</div>
+
+<div class="container">
+    <!-- Sidebar: General Overview -->
+    <div class="sidebar">
+        <h3>Missions</h3>
+        <ul class="mission-list">
+            <li class="mission-item">Mission 1: Downtown</li>
+            <li class="mission-item">Mission 2: Suburbs</li>
+            <li class="mission-item">Mission 3: Industrial Area</li>
+        </ul>
+    </div>
+
+    <!-- Content: Mission-Specific View -->
+    <div class="content">
+        <h2>Mission: Downtown</h2>
+        <div class="map-view">
+            <p>Interactive Map (Placeholder)</p>
+        </div>
+        <div class="progress-bar">
+            <div class="progress"></div>
+        </div>
+        <button>Annotate Missed Roads</button>
+    </div>
+
+    <!-- Updates: Real-Time Feed -->
+    <div class="updates">
+        <h3>Real-Time Updates</h3>
+        <ul class="real-time-updates">
+            <li class="update-item">[10:30 AM] Rig 3 completed Section A5</li>
+            <li class="update-item">[10:35 AM] Annotation added: "Missed road on Section B3"</li>
+            <li class="update-item">[10:40 AM] Rig 2 began Section B6</li>
+        </ul>
+    </div>
+</div>
+
+<div class="footer">
+    <p>Progress Tracker UI - © 2025</p>
+</div>
+
+</body>
+</html>

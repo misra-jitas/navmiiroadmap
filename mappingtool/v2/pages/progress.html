@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Routing Tab Wireframe</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .header {
+            background-color: #333;
+            color: white;
+            padding: 10px;
+            text-align: center;
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+            padding: 10px;
+        }
+        .section {
+            border: 1px solid #ccc;
+            margin-bottom: 10px;
+            padding: 10px;
+            background-color: #f9f9f9;
+        }
+        .section h3 {
+            margin: 0 0 10px 0;
+        }
+        .map-view {
+            height: 300px;
+            background-color: #eaeaea;
+            border: 1px solid #ccc;
+            text-align: center;
+            line-height: 300px;
+        }
+        .button-group {
+            display: flex;
+            gap: 10px;
+            margin-top: 10px;
+        }
+        .button {
+            padding: 10px;
+            background-color: #4caf50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .button:hover {
+            background-color: #45a049;
+        }
+        .info-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .info-table th, .info-table td {
+            border: 1px solid #ccc;
+            padding: 8px;
+            text-align: left;
+        }
+        .info-table th {
+            background-color: #f4f4f4;
+        }
+    </style>
+</head>
+<body>
+
+<div class="header">
+    <h1>Routing Tab</h1>
+</div>
+
+<div class="container">
+    <!-- Route Overview Section -->
+    <div class="section">
+        <h3>Route Overview</h3>
+        <p><strong>Mission Name:</strong> Downtown</p>
+        <p><strong>Route Status:</strong> Active</p>
+        <p><strong>Total Distance:</strong> 120 km</p>
+        <p><strong>Distance Covered:</strong> 80 km</p>
+        <p><strong>Remaining Distance:</strong> 40 km</p>
+        <p><strong>Estimated Completion Time:</strong> 5:00 PM</p>
+    </div>
+
+    <!-- Interactive Route Map Section -->
+    <div class="section">
+        <h3>Interactive Route Map</h3>
+        <div class="map-view">Map Placeholder</div>
+        <div class="button-group">
+            <button class="button">Start Route</button>
+            <button class="button">Recalculate Route</button>
+            <button class="button">Skip Waypoint</button>
+        </div>
+    </div>
+
+    <!-- Route Insights Section -->
+    <div class="section">
+        <h3>Route Insights</h3>
+        <table class="info-table">
+            <tr>
+                <th>Metric</th>
+                <th>Value</th>
+            </tr>
+            <tr>
+                <td>Average Speed</td>
+                <td>45 km/h</td>
+            </tr>
+            <tr>
+                <td>Time Spent</td>
+                <td>4 hours 20 minutes</td>
+            </tr>
+            <tr>
+                <td>Fuel Consumption</td>
+                <td>60% remaining</td>
+            </tr>
+        </table>
+    </div>
+
+    <!-- Issues and Annotations Section -->
+    <div class="section">
+        <h3>Issues and Annotations</h3>
+        <ul>
+            <li>Heavy traffic reported on Section C5</li>
+            <li>Construction blocking Section D4</li>
+            <li>Annotation: "Missed road on Section B3"</li>
+        </ul>
+    </div>
+</div>
+
+</body>
+</html>
