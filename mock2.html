@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mission Planning Configuration</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            width: 400px;
+            overflow-y: auto;
+            max-height: 90vh;
+        }
+        label, h3 {
+            display: block;
+            margin-top: 15px;
+            font-weight: bold;
+        }
+        input, select, button {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            margin-top: 15px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Mission Planning Configuration</h2>
+        
+        <h3>1. Mission Area Size and Road Length</h3>
+        <label for="missionSize">Maximum Mission Area Size (sq mi or sq km)</label>
+        <input type="number" id="missionSize" placeholder="Enter size">
+        
+        <label for="roadLength">Target Road Coverage per Mission (km)</label>
+        <input type="number" id="roadLength" placeholder="Enter road length">
+        
+        <h3>2. Road Alignment Rules</h3>
+        <label for="roadAlignment">Road Alignment</label>
+        <select id="roadAlignment">
+            <option value="centerline">Snap to Road Centerline</option>
+            <option value="roadside">Snap to Roadside</option>
+            <option value="none">Do Not Snap</option>
+        </select>
+
+        <label for="boundaryRoadType">Road Types Defining Boundaries</label>
+        <select id="boundaryRoadType">
+            <option value="highways">Highways (Primary Roads)</option>
+            <option value="major">Major Roads (Arterial)</option>
+            <option value="local">Local Roads</option>
+            <option value="any">Any Available Road</option>
+        </select>
+
+        <h3>3. Connectivity & Accessibility</h3>
+        <label for="minAccess">Minimum Road Access Points per Mission</label>
+        <input type="number" id="minAccess" placeholder="Enter number">
+
+        <label for="connectivity">Connectivity Priority</label>
+        <select id="connectivity">
+            <option value="high">High Connectivity</option>
+            <option value="balanced">Balanced</option>
+            <option value="low">Minimal Connectivity</option>
+        </select>
+
+        <h3>4. Terrain & Natural Features</h3>
+        <label for="avoidFeatures">Features to Avoid Splitting</label>
+        <input type="text" id="avoidFeatures" placeholder="e.g., rivers, highways">
+        
+        <h3>5. Mission Priorities</h3>
+        <label for="priority">Most Important Factor in Subdivision</label>
+        <select id="priority">
+            <option value="road_length">Maximizing Road Length</option>
+            <option value="compact">Keeping Mission Areas Compact</option>
+            <option value="connectivity">Ensuring High Connectivity</option>
+            <option value="avoid_obstacles">Avoiding Natural Obstacles</option>
+        </select>
+        
+        <h3>6. Custom Rules</h3>
+        <label for="exclusionZones">Define Exclusion Zones (comma-separated)</label>
+        <input type="text" id="exclusionZones" placeholder="e.g., restricted areas">
+        
+        <label for="dynamicUpdate">Should Missions Update Dynamically?</label>
+        <select id="dynamicUpdate">
+            <option value="yes">Yes, allow real-time updates</option>
+            <option value="no">No, keep missions static</option>
+        </select>
+        
+        <button onclick="generateMissionAreas()">Generate Mission Areas</button>
+    </div>
+
+    <script>
+        function generateMissionAreas() {
+            const data = {
+                missionSize: document.getElementById('missionSize').value,
+                roadLength: document.getElementById('roadLength').value,
+                roadAlignment: document.getElementById('roadAlignment').value,
+                boundaryRoadType: document.getElementById('boundaryRoadType').value,
+                minAccess: document.getElementById('minAccess').value,
+                connectivity: document.getElementById('connectivity').value,
+                avoidFeatures: document.getElementById('avoidFeatures').value,
+                priority: document.getElementById('priority').value,
+                exclusionZones: document.getElementById('exclusionZones').value,
+                dynamicUpdate: document.getElementById('dynamicUpdate').value
+            };
+            console.log("Mission Configuration:", data);
+            alert("Mission Areas Generated! Check the console for details.");
+        }
+    </script>
+</body>
+</html>

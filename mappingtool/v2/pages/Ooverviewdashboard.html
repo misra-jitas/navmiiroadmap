@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Overview Dashboard</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    header {
+      background-color: #4CAF50;
+      color: white;
+      padding: 10px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .header-title {
+      font-size: 1.5rem;
+    }
+
+    .header-buttons button {
+      background: white;
+      border: none;
+      color: #4CAF50;
+      padding: 5px 10px;
+      margin-left: 5px;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+
+    .header-buttons button:hover {
+      background: #3e8e41;
+      color: white;
+    }
+
+    .kpi-container {
+      display: flex;
+      justify-content: space-around;
+      padding: 15px;
+      background-color: #f8f8f8;
+    }
+
+    .kpi {
+      background: white;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      padding: 10px 20px;
+      text-align: center;
+      box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .kpi h3 {
+      margin: 0;
+      font-size: 1.2rem;
+    }
+
+    .kpi p {
+      margin: 5px 0 0;
+      font-size: 0.9rem;
+      color: #666;
+    }
+
+    .main-content {
+      display: flex;
+      height: calc(100vh - 160px);
+    }
+
+    .map-view {
+      flex: 3;
+      background-color: #e5e5e5;
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .map-view::before {
+      content: "Map View";
+      font-size: 1.5rem;
+      color: #666;
+    }
+
+    .segment-list {
+      flex: 1;
+      background: #ffffff;
+      border-left: 1px solid #ddd;
+      overflow-y: auto;
+      padding: 10px;
+    }
+
+    .segment-list h3 {
+      font-size: 1.2rem;
+      margin: 10px 0;
+    }
+
+    .segment-item {
+      padding: 10px;
+      border-bottom: 1px solid #ddd;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .segment-item:hover {
+      background: #f8f8f8;
+    }
+
+    .segment-item span {
+      font-size: 0.9rem;
+      color: #666;
+    }
+
+    .footer {
+      background: #f4f4f4;
+      padding: 10px;
+      text-align: center;
+      font-size: 0.9rem;
+      border-top: 1px solid #ddd;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-title">Overview Dashboard</div>
+    <div class="header-buttons">
+      <button>Filters</button>
+      <button>Export</button>
+      <button>Refresh</button>
+      <button>Settings</button>
+    </div>
+  </header>
+
+  <div class="kpi-container">
+    <div class="kpi">
+      <h3>Total Segments</h3>
+      <p>50</p>
+    </div>
+    <div class="kpi">
+      <h3>Completed</h3>
+      <p>30</p>
+    </div>
+    <div class="kpi">
+      <h3>Incomplete</h3>
+      <p>15</p>
+    </div>
+    <div class="kpi">
+      <h3>Non-Existent</h3>
+      <p>5</p>
+    </div>
+    <div class="kpi">
+      <h3>Time Remaining</h3>
+      <p>10 hrs</p>
+    </div>
+  </div>
+
+  <div class="main-content">
+    <div class="map-view"></div>
+    <div class="segment-list">
+      <h3>Segment List</h3>
+      <div class="segment-item">
+        <span>Segment ID: 1</span>
+        <span>Status: Completed</span>
+      </div>
+      <div class="segment-item">
+        <span>Segment ID: 2</span>
+        <span>Status: Incomplete</span>
+      </div>
+      <div class="segment-item">
+        <span>Segment ID: 3</span>
+        <span>Status: Non-Existent</span>
+      </div>
+    </div>
+  </div>
+
+  <footer class="footer">
+    Legend: Green = Completed, Yellow = Incomplete, Red = Non-Existent
+  </footer>
+</body>
+</html>

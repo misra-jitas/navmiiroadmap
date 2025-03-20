@@ -1,0 +1,8 @@
+District: Alamo Heights, Texas, USA
+  Number of Segments: 1074
+  Number of Nodes: 359
+  Total Road Length (meters): 147300.4667061954
+  Average Segment Length (meters): 137.151272538357
+  Road Density (meters per square meter): 0.023311964103847758
+  Estimated Total Driving Time (hours): 3.6825116676548855
+

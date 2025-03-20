@@ -1,0 +1,2 @@
+Total Road Length (meters),Number of Intersections (Nodes),Average Street Segment Length (meters),Node Density (per sq.km),Polygon Area (sq.km),Road Type Distribution
+1096207.7988703093,5379,73.08051992468728,155.83044192970556,34.51828752707025,"{'service': 6263, 'residential': 4666, 'footway': 1630, 'secondary': 1190, 'tertiary': 391, 'primary': 306, 'track': 172, 'unclassified': 165, 'motorway_link': 70, 'steps': 58, 'cycleway': 54, 'path': 54, 'motorway': 39, 'secondary_link': 35, 'primary_link': 5}"

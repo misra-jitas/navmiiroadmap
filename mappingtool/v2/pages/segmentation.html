@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Segmentation Tool</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    header {
+      background-color: #4CAF50;
+      color: white;
+      padding: 10px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .header-title {
+      font-size: 1.5rem;
+    }
+
+    .header-buttons button {
+      background: white;
+      border: none;
+      color: #4CAF50;
+      padding: 5px 10px;
+      margin-left: 5px;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+
+    .header-buttons button:hover {
+      background: #3e8e41;
+      color: white;
+    }
+
+    .main-content {
+      display: flex;
+      height: calc(100vh - 60px);
+    }
+
+    .map-view {
+      flex: 2;
+      background-color: #e5e5e5;
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .map-view::before {
+      content: "Map View (CP Route)";
+      font-size: 1.5rem;
+      color: #666;
+    }
+
+    .settings-panel {
+      flex: 1;
+      background: #ffffff;
+      border-left: 1px solid #ddd;
+      padding: 10px;
+      overflow-y: auto;
+    }
+
+    .settings-panel h3 {
+      margin-top: 0;
+    }
+
+    .settings-panel label {
+      display: block;
+      margin: 10px 0 5px;
+      font-size: 0.9rem;
+    }
+
+    .settings-panel input[type="text"], 
+    .settings-panel input[type="number"], 
+    .settings-panel select {
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 10px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+    }
+
+    .settings-panel button {
+      width: 100%;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      padding: 10px;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+
+    .settings-panel button:hover {
+      background-color: #3e8e41;
+    }
+
+    .segment-list {
+      margin-top: 20px;
+      background: #f9f9f9;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      padding: 10px;
+    }
+
+    .segment-item {
+      padding: 10px;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .segment-item:last-child {
+      border-bottom: none;
+    }
+
+    .segment-item span {
+      font-size: 0.9rem;
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-title">Segmentation Tool</div>
+    <div class="header-buttons">
+      <button>Save</button>
+      <button>Export</button>
+      <button>Settings</button>
+    </div>
+  </header>
+
+  <div class="main-content">
+    <div class="map-view"></div>
+    <div class="settings-panel">
+      <h3>Segmentation Settings</h3>
+      <label for="segment-length">Max Segment Length (km):</label>
+      <input type="number" id="segment-length" placeholder="Enter maximum length">
+
+      <label for="split-criteria">Split Criteria:</label>
+      <select id="split-criteria">
+        <option value="overlap">At Overlaps</option>
+        <option value="length">By Length</option>
+        <option value="custom">Custom Points</option>
+      </select>
+
+      <label for="segment-name">Custom Segment Name:</label>
+      <input type="text" id="segment-name" placeholder="Enter segment name">
+
+      <button>Create Segments</button>
+
+      <h3>Segments</h3>
+      <div class="segment-list">
+        <div class="segment-item">
+          <span>Segment ID: 1</span>
+          <span>Length: 5 km</span>
+          <span>Status: Pending</span>
+        </div>
+        <div class="segment-item">
+          <span>Segment ID: 2</span>
+          <span>Length: 7 km</span>
+          <span>Status: Pending</span>
+        </div>
+        <div class="segment-item">
+          <span>Segment ID: 3</span>
+          <span>Length: 4 km</span>
+          <span>Status: Pending</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
