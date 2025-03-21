@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mission Logic Pseudocode</title>
+    <style>
+        body {
+            font-family: monospace;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            width: 600px;
+            overflow-y: auto;
+            max-height: 90vh;
+        }
+        pre {
+            background-color: #eee;
+            padding: 10px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+        h3 {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Mission Modifier Pseudocode</h2>
+
+        <h3>1. Mission Area Size</h3>
+        <pre>
+IF polygon.area > max_area THEN
+    split_polygon_into_smaller_parts(polygon, max_area)
+END</pre>
+
+        <h3>2. Road Coverage (linear km)</h3>
+        <pre>
+roads_in_polygon = extract_roads(polygon)
+total_km = sum_length(roads_in_polygon)
+
+IF total_km > max_km THEN
+    subdivide_polygon(polygon, target_km=max_km)
+END</pre>
+
+        <h3>3. Road Alignment</h3>
+        <pre>
+FOR each mission_boundary_segment:
+    nearest_road = find_nearest_road(segment)
+
+    IF alignment == 'centerline':
+        snap_segment_to(nearest_road.centerline)
+    ELSE IF alignment == 'roadside':
+        snap_segment_to(nearest_road.side_offset)
+    END
+END</pre>
+
+        <h3>4. Road Type for Boundaries</h3>
+        <pre>
+boundary_candidates = filter_roads_by_class(roads, allowed_classes)
+use_roads_as_boundary_split_lines(boundary_candidates)</pre>
+
+        <h3>5. Min Access Points</h3>
+        <pre>
+entry_points = count_road_entries(polygon)
+
+IF entry_points < min_access THEN
+    merge_polygon_with_adjacent(polygon)
+END</pre>
+
+        <h3>6. Connectivity Priority</h3>
+        <pre>
+graph = build_road_network(polygon)
+IF priority == 'high' THEN
+    ensure_multiple_paths_between_any_two_nodes(graph)
+ELSE IF priority == 'low' THEN
+    allow_sparse_network()
+END</pre>
+
+        <h3>7. Avoid Splitting Natural Features</h3>
+        <pre>
+FOR each feature in avoid_list:
+    IF polygon intersects feature THEN
+        adjust_polygon_to_border(feature)
+    END
+END</pre>
+
+        <h3>8. Mission Priority</h3>
+        <pre>
+score = weighted_sum([
+    road_length_score,
+    compactness_score,
+    connectivity_score,
+    obstacle_avoidance_score
+])
+
+select_partition_with_highest_score()</pre>
+
+        <h3>9. Exclusion Zones</h3>
+        <pre>
+polygon = polygon - union(exclusion_zones)</pre>
+
+        <h3>10. Dynamic Update</h3>
+        <pre>
+IF dynamic == true THEN
+    monitor_changes()
+    regenerate_missions_if_needed()
+END</pre>
+    </div>
+</body>
+</html>
