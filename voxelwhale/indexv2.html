@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lanelet2 Governance Service</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<style>
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 24
+}
+</style>
+<script id="tailwind-config">
+tailwind.config = {
+  darkMode: "class",
+  theme: {
+    extend: {
+      colors: {
+        "primary": "#137fec",
+        "background-light": "#f6f7f8",
+        "background-dark": "#101922",
+      },
+      fontFamily: {
+        "display": ["Space Grotesk", "sans-serif"]
+      },
+      borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+    },
+  },
+}
+</script>
+</head>
+<body class="font-display bg-background-light dark:bg-background-dark text-[#a0aec0]">
+<div class="flex flex-col" id="root">
+<!-- TopNavBar -->
+<header class="sticky top-0 z-50 w-full bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-sm border-b border-white/10">
+<div class="container mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex h-16 items-center justify-between">
+<div class="flex items-center gap-4 text-white">
+<div class="size-6 text-primary">
+<div class="size-6">
+  <img src="logo.png" alt="Lanelet2 Governance Logo" class="h-8 w-auto">
+</div>
+</div>
+<h2 class="text-lg font-bold leading-tight tracking-[-0.015em] text-black dark:text-white">Lanelet2 Service by VoxelMaps</h2>
+</div>
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-sm font-medium leading-normal text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-primary" href="#mission">Mission</a>
+<a class="text-sm font-medium leading-normal text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-primary" href="#components">Components</a>
+<a class="text-sm font-medium leading-normal text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-primary" href="#pipeline">Pipeline</a>
+<a class="text-sm font-medium leading-normal text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-primary" href="#value">Value</a>
+</nav>
+<div class="flex items-center">
+<button class="flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary text-white text-sm font-bold leading-normal tracking-[0.015em] hover:bg-primary/90 transition-colors">
+<span class="truncate">Contact Us</span>
+</button>
+</div>
+</div>
+</div>
+</header>
+
+<main class="container mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24">
+<!-- HeroSection -->
+<section class="@container py-10" id="home">
+<div class="flex flex-col-reverse gap-8 @[960px]:flex-row">
+<div class="flex flex-col gap-6 w-full @[960px]:w-1/2 @[960px]:justify-center">
+<div class="flex flex-col gap-4 text-left">
+<h1 class="text-4xl font-black leading-tight tracking-[-0.033em] text-black dark:text-white @[480px]:text-5xl">
+Expert-Delivered Lanelet2 Governance for Autonomous Systems
+</h1>
+<h2 class="text-base font-normal leading-normal @[480px]:text-lg">
+High-precision map data and certification services, continuously managed by our team to ensure safe deployment for ADAS and autonomous vehicles.
+</h2>
+</div>
+<div class="flex-wrap gap-3 flex">
+<button class="flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 px-5 bg-primary text-white text-base font-bold leading-normal tracking-[0.015em] hover:bg-primary/90 transition-colors">
+<span class="truncate">Request a Consultation</span>
+</button>
+<button class="flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 px-5 bg-white/10 text-black dark:text-white border border-white/20 text-base font-bold leading-normal tracking-[0.015em] hover:bg-white/20 transition-colors">
+<span class="truncate">Learn More</span>
+</button>
+</div>
+</div>
+<div class="w-full @[960px]:w-1/2 bg-center bg-no-repeat aspect-video bg-cover rounded-xl" data-alt="Abstract visualization of autonomous vehicle data streams and connections" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuD7k5d-ZwjKvHnolGlxvuUwl4x2vL-qY4THRNXGp7Po8e197C6LnGASrv3gmzmGDQNMRGyEK3mav3TVxb2eVJWAfQunqdkKb1_uzoEcwMN3D_ZJKEEvmRDzRJ0HoquBh971Q8dq_wKN_CgVvccEWgrLUbfBwPcsVKPYgSeuZ4Ah2GSMqyuteK_m-eJI5RH1COagmwTZroUabIBXJrJy9fEB73WpmVCXYvxdllk7fMEQNeY-8ZpAAl4ZrRfYCmiQLO5ihJLzHdNDVYg");'></div>
+</div>
+</section>
+
+<!-- Mission Section -->
+<section class="py-16 sm:py-24 text-center max-w-4xl mx-auto" id="mission">
+<h2 class="text-[22px] font-bold leading-tight tracking-[-0.015em] text-black dark:text-white pb-3">Our Mission</h2>
+<p class="text-lg font-normal leading-relaxed">
+Deliver reliable, verifiable, and compliant digital map data, backed by hands-on expert management, enabling safe and scalable deployment of autonomous systems worldwide.
+</p>
+</section>
+
+<!-- Core Components Section -->
+<section class="py-16 sm:py-24" id="components">
+<div class="text-center mb-12">
+<h2 class="text-[22px] font-bold leading-tight tracking-[-0.015em] text-black dark:text-white pb-3">Core Services</h2>
+<p class="max-w-2xl mx-auto">Our team manages the full lifecycle of map data, combining automation with expert oversight for certified outcomes.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+<div class="bg-background-dark/50 border border-white/10 rounded-xl p-6 flex flex-col items-start text-left hover:border-primary/50 transition-colors">
+<span class="material-symbols-outlined text-primary text-4xl mb-4" data-icon="layers">layers</span>
+<h3 class="font-bold text-lg text-black dark:text-white mb-2">Automated Data Extraction</h3>
+<p class="text-sm">Our team leverages automated tools to convert raw sensor data into high-fidelity Lanelet2 maps, continuously monitored and validated by experts.</p>
+</div>
+<div class="bg-background-dark/50 border border-white/10 rounded-xl p-6 flex flex-col items-start text-left hover:border-primary/50 transition-colors">
+<span class="material-symbols-outlined text-primary text-4xl mb-4" data-icon="person_check">group_add</span>
+<h3 class="font-bold text-lg text-black dark:text-white mb-2">Expert Review & Governance</h3>
+<p class="text-sm">Every map undergoes rigorous human-in-the-loop review to ensure the highest standards of accuracy, completeness, and compliance.</p>
+</div>
+<div class="bg-background-dark/50 border border-white/10 rounded-xl p-6 flex flex-col items-start text-left hover:border-primary/50 transition-colors">
+<span class="material-symbols-outlined text-primary text-4xl mb-4" data-icon="rules">rule</span>
+<h3 class="font-bold text-lg text-black dark:text-white mb-2">Semantic & Rule Enforcement</h3>
+<p class="text-sm">Our team defines and enforces topological and semantic rules, ensuring maps meet certification standards and client requirements.</p>
+</div>
+<div class="bg-background-dark/50 border border-white/10 rounded-xl p-6 flex flex-col items-start text-left hover:border-primary/50 transition-colors">
+<span class="material-symbols-outlined text-primary text-4xl mb-4" data-icon="monitoring">monitoring</span>
+<h3 class="font-bold text-lg text-black dark:text-white mb-2">Continuous QA & Drift Monitoring</h3>
+<p class="text-sm">We monitor maps for real-world changes and update them continuously, maintaining certified accuracy over time.</p>
+</div>
+<div class="bg-background-dark/50 border border-white/10 rounded-xl p-6 flex flex-col items-start text-left hover:border-primary/50 transition-colors">
+<span class="material-symbols-outlined text-primary text-4xl mb-4" data-icon="3d_rotation">view_in_ar</span>
+<h3 class="font-bold text-lg text-black dark:text-white mb-2">Digital Twin Integration</h3>
+<p class="text-sm">Certified maps are prepared for seamless integration into simulations and digital twins, maintained by our team for ongoing virtual testing.</p>
+</div>
+<div class="bg-background-dark/50 border border-white/10 rounded-xl p-6 flex flex-col items-start text-left hover:border-primary/50 transition-colors">
+<span class="material-symbols-outlined text-primary text-4xl mb-4" data-icon="verified_user">verified_user</span>
+<h3 class="font-bold text-lg text-black dark:text-white mb-2">Provenance & Compliance Management</h3>
+<p class="text-sm">End-to-end data lineage and automated reporting handled by our experts, ensuring regulatory compliance and audit readiness.</p>
+</div>
+</div>
+</section>
+
+<!-- Data Pipeline Section -->
+<section class="py-16 sm:py-24" id="pipeline">
+<div class="text-center mb-16">
+<h2 class="text-[22px] font-bold leading-tight tracking-[-0.015em] text-black dark:text-white pb-3">Managed Data Pipeline</h2>
+<p class="max-w-2xl mx-auto">Our team transforms raw data into certified, deployment-ready Lanelet2 maps through a fully managed, expert-driven pipeline.</p>
+</div>
+<div class="relative flex flex-col md:flex-row items-center justify-between gap-8 md:gap-0">
+<div class="absolute top-1/2 left-0 w-full h-0.5 bg-white/20 hidden md:block"></div>
+
+<div class="relative flex flex-col items-center text-center w-full md:w-1/5">
+<div class="w-12 h-12 rounded-full bg-primary/20 border-2 border-primary flex items-center justify-center text-primary mb-3">
+<span class="material-symbols-outlined">input</span>
+</div>
+<h4 class="font-bold text-black dark:text-white">Data Collection</h4>
+</div>
+
+<div class="relative flex flex-col items-center text-center w-full md:w-1/5">
+<div class="w-12 h-12 rounded-full bg-primary/20 border-2 border-primary flex items-center justify-center text-primary mb-3">
+<span class="material-symbols-outlined">precision_manufacturing</span>
+</div>
+<h4 class="font-bold text-black dark:text-white">Automated Processing</h4>
+</div>
+
+<div class="relative flex flex-col items-center text-center w-full md:w-1/5">
+<div class="w-12 h-12 rounded-full bg-primary/20 border-2 border-primary flex items-center justify-center text-primary mb-3">
+<span class="material-symbols-outlined">rate_review</span>
+</div>
+<h4 class="font-bold text-black dark:text-white">Expert Review & Validation</h4>
+</div>
+
+<div class="relative flex flex-col items-center text-center w-full md:w-1/5">
+<div class="w-12 h-12 rounded-full bg-primary/20 border-2 border-primary flex items-center justify-center text-primary mb-3">
+<span class="material-symbols-outlined">workspace_premium</span>
+</div>
+<h4 class="font-bold text-black dark:text-white">Certification by Experts</h4>
+</div>
+
+<div class="relative flex flex-col items-center text-center w-full md:w-1/5">
+<div class="w-12 h-12 rounded-full bg-primary/20 border-2 border-primary flex items-center justify-center text-primary mb-3">
+<span class="material-symbols-outlined">local_shipping</span>
+</div>
+<h4 class="font-bold text-black dark:text-white">Delivery & Ongoing Updates</h4>
+</div>
+</div>
+</section>
+
+<!-- Deliverables & Value Section -->
+<section class="py-16 sm:py-24" id="value">
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
+<div>
+<h2 class="text-[22px] font-bold leading-tight tracking-[-0.015em] text-black dark:text-white pb-6">Deliverables</h2>
+<div class="space-y-4">
+<div class="bg-background-dark/50 border border-white/10 rounded-lg p-5">
+<h3 class="font-bold text-lg text-black dark:text-white mb-2">Certified Lanelet2 Maps</h3>
+<ul class="list-disc list-inside text-sm space-y-1">
+<li>High-precision, fully validated map data</li>
+<li>Rich semantic and topological information for all road elements</li>
+<li>Delivered and maintained by our expert team</li>
+</ul>
+</div>
+<div class="bg-background-dark/50 border border-white/10 rounded-lg p-5">
+<h3 class="font-bold text-lg text-black dark:text-white mb-2">Compliance & Provenance Reports</h3>
+<ul class="list-disc list-inside text-sm space-y-1">
+<li>Full data lineage from collection to certified map</li>
+<li>Automated reporting for regulatory submissions</li>
+<li>Managed version control and change logs by our team</li>
+</ul>
+</div>
+<div class="bg-background-dark/50 border border-white/10 rounded-lg p-5">
+<h3 class="font-bold text-lg text-black dark:text-white mb-2">Simulation-Ready Data</h3>
+<ul class="list-disc list-inside text-sm space-y-1">
+<li>Optimized for virtual testing and digital twins</li>
+<li>Delivered in formats compatible with client systems</li>
+<li>Continuously updated for real-world accuracy</li>
+</ul>
+</div>
+</div>
+</div>
+<div>
+<h2 class="text-[22px] font-bold leading-tight tracking-[-0.015em] text-black dark:text-white pb-6">Strategic Value</h2>
+<div class="space-y-2">
+<details class="group bg-background-dark/50 border border-white/10 rounded-lg p-4 cursor-pointer" open="">
+<summary class="flex justify-between items-center font-bold text-black dark:text-white">
+Reduced Risk &amp; Liability
+<span class="transform transition-transform duration-200 group-open:rotate-180">
+<span class="material-symbols-outlined">expand_more</span>
+</span>
+</summary>
+<p class="text-sm mt-3 pt-3 border-t border-white/10">Ensure safety and reduce operational risk with legally defensible, expert-delivered map data. Our team provides the evidence needed to support safety cases.</p>
+</details>
+<details class="group bg-background-dark/50 border border-white/10 rounded-lg p-4 cursor-pointer">
+<summary class="flex justify-between items-center font-bold text-black dark:text-white">
+Accelerated Development Cycles
+<span class="transform transition-transform duration-200 group-open:rotate-180">
+<span class="material-symbols-outlined">expand_more</span>
+</span>
+</summary>
+<p class="text-sm mt-3 pt-3 border-t border-white/10">Move faster from R&amp;D to deployment. Our team automates and manages time-consuming map creation tasks, freeing engineering teams to focus on core AV technology.</p>
+</details>
+<details class="group bg-background-dark/50 border border-white/10 rounded-lg p-4 cursor-pointer">
+<summary class="flex justify-between items-center font-bold text-black dark:text-white">
+Regulatory Compliance
+<span class="transform transition-transform duration-200 group-open:rotate-180">
+<span class="material-symbols-outlined">expand_more</span>
+</span>
+</summary>
+<p class="text-sm mt-3 pt-3 border-t border-white/10">Navigate autonomous driving regulations with confidence. Our experts provide full documentation and maintain certified maps in line with global safety standards.</p>
+</details>
+</div>
+</div>
+</div>
+</section>
+
+<!-- CTA Section -->
+<section class="bg-primary/20 dark:bg-primary/10 rounded-xl p-8 sm:p-16 text-center">
+<h2 class="text-3xl font-bold leading-tight tracking-[-0.015em] text-black dark:text-white mb-4">Ready for a Technical Deep-Dive?</h2>
+<p class="max-w-2xl mx-auto mb-8">Contact our team to schedule a consultation and see how our managed Lanelet2 services can ensure the safety and compliance of your autonomous systems.</p>
+<button class="flex mx-auto min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 px-5 bg-primary text-white text-base font-bold leading-normal tracking-[0.015em] hover:bg-primary/90 transition-colors">
+<span class="truncate">Schedule a Service Consultation</span>
+</button>
+</section>
+</main>
+
+<!-- Footer -->
+<footer class="border-t border-white/10">
+<div class="container mx-auto px-4 sm:px-6 lg:px-8 py-6 flex flex-col sm:flex-row justify-between items-center text-sm text-slate-500">
+<p>© 2024 Lanelet2 Governance. All rights reserved.</p>
+<div class="flex gap-4 mt-4 sm:mt-0">
+<a class="hover:text-primary" href="#">Privacy Policy</a>
+<a class="hover:text-primary" href="#">Terms of Service</a>
+</div>
+</div>
+</footer>
+</div>
+</body></html>
